@@ -116,6 +116,30 @@ O projeto trabalha diversos conceitos estudados durante as aulas, como:
 
 O tabuleiro é representado através de uma matriz `3x3`, permitindo que os jogadores informem a linha e a coluna onde desejam realizar a jogada.
 
+
+---
+
+# ❌⭕ Projeto — Jogo da Velha 2
+
+### [`JogoDaVelha2.java`](./JogoDaVelha/JogoDaVelha2.java)
+
+Segunda versão do **Jogo da Velha para dois jogadores**, desenvolvida para aprimorar a organização do código em Java e aplicar conceitos iniciais de **Programação Orientada a Objetos**, estruturando as funcionalidades dentro de uma classe e separando as principais responsabilidades em métodos.
+
+Nesta versão, o programa foi reorganizado para tornar o código mais modular, legível e reutilizável. Entre os principais recursos estão:
+
+* criação e inicialização do tabuleiro por meio de método;
+* exibição do tabuleiro;
+* validação das jogadas e das posições escolhidas;
+* tratamento de entradas inválidas;
+* alternância entre os jogadores `X` e `O`;
+* verificação de vitória em linhas, colunas e diagonais;
+* identificação de empate;
+* sistema de placar entre os jogadores;
+* possibilidade de iniciar novas partidas;
+* separação das funcionalidades em métodos específicos.
+
+A atividade representa uma evolução da primeira versão do jogo, reduzindo a concentração de toda a lógica no método `main` e demonstrando como a divisão de responsabilidades facilita a manutenção e a compreensão do programa.
+
 ---
 
 ## 🛠️ Tecnologias utilizadas
