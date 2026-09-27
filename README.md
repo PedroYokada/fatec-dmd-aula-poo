@@ -2,7 +2,7 @@
 
 Repositório destinado ao armazenamento das **atividades, exercícios e projetos desenvolvidos na disciplina de Programação Orientada a Objetos (ILP002)**.
 
-A disciplina aborda o desenvolvimento de aplicações utilizando **Java**, iniciando pela revisão dos fundamentos da programação e avançando para conceitos de **classes, objetos, métodos, encapsulamento, herança, polimorfismo, Banco de Dados, arquitetura cliente-servidor e MVC**.
+A disciplina aborda o desenvolvimento de aplicações utilizando **Java**, iniciando pela revisão dos fundamentos da programação e avançando para conceitos de **arrays, matrizes, métodos, classes, objetos, encapsulamento, herança, polimorfismo, Banco de Dados, arquitetura cliente-servidor e MVC**.
 
 ---
 
@@ -16,6 +16,7 @@ Durante as atividades são praticados conceitos como:
 * estruturas condicionais;
 * estruturas de repetição;
 * entrada e validação de dados;
+* arrays e matrizes;
 * métodos;
 * classes e objetos;
 * encapsulamento;
@@ -97,6 +98,135 @@ Exercícios voltados para utilização prática de `for`, `while` e `do...while`
 
 ---
 
+## 🧪 Aula 18/09 — Arrays, matrizes e métodos
+
+Nesta aula foram introduzidos exercícios com **arrays unidimensionais**, **matrizes bidimensionais**, laços de repetição aplicados a estruturas de dados e métodos que recebem arrays como parâmetro.
+
+| Exercício | Descrição |
+| --- | --- |
+| [`Array1.java`](./Aula1809/Array1.java) | Cria um array de cinco posições, preenche seus elementos utilizando um `for` e percorre novamente o array para exibir os valores armazenados. |
+| [`Array2.java`](./Aula1809/Array2.java) | Preenche um array, utiliza um método para imprimi-lo e outro método para somar seus elementos, praticando parâmetros, retorno e `length`. |
+| [`Matriz.java`](./Aula1809/Matriz.java) | Arquivo-base criado para o estudo de matrizes; no estado atual ainda não possui lógica implementada além do método `main`. |
+| [`Matriz2.java`](./Aula1809/Matriz2.java) | Trabalha uma matriz `7x6` preenchida com `0` e `1` e utiliza dois laços `for` aninhados para somar todos os seus elementos. |
+
+### 💡 Conceitos-chave da aula
+
+**Array** pode ser imaginado como uma fileira de gavetas numeradas. Cada posição possui um índice, começando em `0`, e `array.length` informa quantas posições existem.
+
+**Matriz** funciona como uma tabela formada por linhas e colunas. Para percorrer todos os elementos, normalmente são utilizados dois laços: um para as linhas e outro para as colunas.
+
+**Métodos com arrays** permitem separar responsabilidades. Em vez de realizar tudo no `main`, um método pode receber um array, processá-lo e devolver um resultado, como acontece na soma realizada em `Array2.java`.
+
+---
+
+## 🧩 Aula 25/09 — Métodos, arrays e matrizes irregulares
+
+Os exercícios desta aula aprofundam o uso de arrays e matrizes, incluindo soma de elementos, métodos com retorno, preenchimento de matrizes, laços aninhados, `for-each` e **matrizes irregulares (jagged arrays)**.
+
+| Exercício | Descrição |
+| --- | --- |
+| [`exer1.java`](./Aula2509/exer1.java) | Percorre um array de números inteiros, utiliza um acumulador para somar seus valores e apresenta o resultado. |
+| [`exer2.java`](./Aula2509/exer2.java) | Encapsula a soma dos elementos de um array dentro de um método que retorna um valor inteiro, praticando chamada de método e `return`. |
+| [`exer3.java`](./Aula2509/exer3.java) | Envia um array para um método de soma e demonstra um `return` antecipado quando o índice chega a determinada posição. |
+| [`exer4.java`](./Aula2509/exer4.java) | Cria uma matriz `7x6` e permite que o usuário preencha todas as posições utilizando `Scanner` e dois laços `for` aninhados. |
+| [`exer5.java`](./Aula2509/exer5.java) | Percorre uma matriz, exibe cada linha com `Arrays.toString()` e utiliza um método para calcular a soma de todos os elementos. |
+| [`exer6.java`](./Aula2509/exer6.java) | Cria uma matriz irregular com linhas de tamanhos diferentes, preenche as posições com números sequenciais de `1` a `56` e exibe as linhas com `for-each`. |
+| [`exer7.java`](./Aula2509/exer7.java) | Define os tamanhos das linhas em um array auxiliar, monta dinamicamente uma matriz irregular, preenche valores sequenciais e utiliza `for-each` para exibição. |
+| [`exer8.java`](./Aula2509/exer8.java) | Arquivo-base criado para continuidade dos exercícios; no estado atual ainda não possui lógica implementada. |
+
+### 💡 Matriz irregular — analogia
+
+Uma matriz tradicional é como um **prédio em que todos os andares possuem a mesma quantidade de apartamentos**. Uma matriz irregular é como um prédio em que cada andar pode ter uma quantidade diferente de apartamentos. Em Java, isso significa que cada linha pode possuir um tamanho próprio.
+
+O `for-each`, utilizado nos exercícios mais recentes, facilita a leitura dos elementos quando não é necessário trabalhar diretamente com o índice de cada posição.
+
+---
+
+## 📕 Lista 4 — Arrays
+
+A Lista 4 reúne exercícios específicos de manipulação de arrays, trabalhando leitura, exibição, soma, média, busca, contagem de ocorrências, identificação de valores pares, inversão e ordenação.
+
+| Exercício | Descrição |
+| --- | --- |
+| [`LeituraExibicao.java`](./Lista4/LeituraExibicao.java) | Lê cinco números, armazena os valores em um array, exibe cada posição individualmente e apresenta o vetor completo com `Arrays.toString()`. |
+| [`SomaElementos.java`](./Lista4/SomaElementos.java) | Lê dez números e utiliza uma variável acumuladora para calcular a soma de todos os elementos armazenados no array. |
+| [`Media.java`](./Lista4/Media.java) | Lê oito números, soma os elementos e calcula a média utilizando conversão para `float` para preservar a parte decimal do resultado. |
+| [`MaiorMenorValor.java`](./Lista4/MaiorMenorValor.java) | Lê oito números e compara os valores durante o preenchimento para identificar o **menor valor** armazenado no vetor. |
+| [`ContagemDePares.java`](./Lista4/ContagemDePares.java) | Lê oito números, identifica os valores pares com o operador `%`, armazena-os em um novo array e informa também a quantidade encontrada. |
+| [`InverterArray.java`](./Lista4/InverterArray.java) | Lê cinco números e cria um segundo vetor em ordem inversa, acessando o array original de trás para frente com `vet.length - 1 - i`. |
+| [`BuscaDeElemento.java`](./Lista4/BuscaDeElemento.java) | Lê dez números e permite realizar buscas repetidas no vetor, informando as posições e quantas vezes o valor procurado aparece. |
+| [`ContagemDeOcorrencias.java`](./Lista4/ContagemDeOcorrencias.java) | Lê dez números e um valor `X`, percorre o array e informa quantas vezes esse valor aparece. |
+| [`Ordenacao.java`](./Lista4/Ordenacao.java) | Lê cinco números, exibe o vetor original e utiliza `Arrays.sort()` para reorganizar seus elementos em ordem crescente. |
+
+### 💡 Como pensar em arrays
+
+Imagine um array como uma **fileira de gavetas**:
+
+```text
+Índice:   0    1    2    3    4
+        +----+----+----+----+----+
+Valor:  | 10 | 20 | 30 | 40 | 50 |
+        +----+----+----+----+----+
+```
+
+O número dentro da gaveta é o **valor**. O número utilizado para localizar a gaveta é o **índice**.
+
+Em um vetor com cinco posições:
+
+```java
+vet.length
+```
+
+retorna `5`, enquanto o último índice é `4`. Por isso, expressões como:
+
+```java
+vet.length - 1
+```
+
+são utilizadas para acessar a última posição.
+
+### 🔍 Busca e contagem de ocorrências
+
+Para procurar um valor, o programa percorre as posições e compara cada elemento:
+
+```java
+if (vet[i] == numero)
+```
+
+É como verificar **gaveta por gaveta** até encontrar o número desejado. Quando o objetivo é descobrir quantas vezes um número aparece, uma variável contadora é incrementada sempre que existe uma correspondência.
+
+### 🔄 Inversão do vetor
+
+Em `InverterArray.java`, a expressão:
+
+```java
+vet.length - 1 - i
+```
+
+faz a leitura do vetor de trás para frente. Se o vetor possui cinco posições, os índices acessados serão `4`, `3`, `2`, `1` e `0`.
+
+### 📊 Ordenação
+
+O método:
+
+```java
+Arrays.sort(vet);
+```
+
+reorganiza os números do vetor em ordem crescente. Por exemplo:
+
+```text
+[50, 10, 30, 20, 40]
+```
+
+passa a ser:
+
+```text
+[10, 20, 30, 40, 50]
+```
+
+---
+
 # ❌⭕ Projeto — Jogo da Velha
 
 ### [`JogoDaVelha.java`](./JogoDaVelha/JogoDaVelha.java)
@@ -115,7 +245,6 @@ O projeto trabalha diversos conceitos estudados durante as aulas, como:
 * identificação de vitória ou empate.
 
 O tabuleiro é representado através de uma matriz `3x3`, permitindo que os jogadores informem a linha e a coluna onde desejam realizar a jogada.
-
 
 ---
 
@@ -155,7 +284,22 @@ A atividade representa uma evolução da primeira versão do jogo, reduzindo a c
 
 O repositório acompanha a evolução dos conteúdos estudados durante a disciplina.
 
-Atualmente, as atividades concentram-se principalmente nos fundamentos de Java, estruturas condicionais e estruturas de repetição. Conforme o avanço das aulas, novos exercícios poderão abordar:
+Até o momento, as atividades já trabalham:
+
+* fundamentos da linguagem Java;
+* estruturas condicionais;
+* estruturas de repetição;
+* contadores e acumuladores;
+* arrays unidimensionais;
+* busca, inversão e ordenação de arrays;
+* matrizes bidimensionais;
+* matrizes irregulares;
+* laços aninhados;
+* `for-each`;
+* métodos com parâmetros e retorno;
+* organização inicial do código em métodos.
+
+Conforme o avanço das aulas, os próximos exercícios poderão aprofundar conteúdos como:
 
 * classes e objetos;
 * atributos e métodos;
