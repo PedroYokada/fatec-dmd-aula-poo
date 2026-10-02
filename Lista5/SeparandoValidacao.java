@@ -21,6 +21,7 @@ public class SeparandoValidacao {
 	public static int lerNumero(Scanner sc) {
 
 		System.out.print("Insira um numero: ");
+		
 		int num = sc.nextInt();
 
 		return num;
