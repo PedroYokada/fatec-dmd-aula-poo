@@ -31,19 +31,19 @@ Durante as atividades são praticados conceitos como:
 
 Exercícios introdutórios utilizados para revisar a sintaxe do Java e diferentes formas de trabalhar com estruturas de repetição.
 
-| Exercício                                                   | Descrição                                                                              |
-| ----------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| [`HelloWorld.java`](./Lista1/HelloWorld.java)               | Primeiro programa em Java, exibindo a mensagem **Olá Mundo** no console.               |
-| [`CelsiusFahrenheit.java`](./Lista1/CelsiusFahrenheit.java) | Realiza a conversão de uma temperatura informada em Fahrenheit para Celsius.           |
-| [`FahrenheitCelsius.java`](./Lista1/FahrenheitCelsius.java) | Exercício de conversão de temperatura utilizando entrada de dados com `Scanner`.       |
-| [`DoWhile.java`](./Lista1/DoWhile.java)                     | Demonstra o funcionamento da estrutura de repetição `do...while`.                      |
-| [`While1.java`](./Lista1/While1.java)                       | Realiza uma contagem utilizando a estrutura `while`.                                   |
-| [`For1.java`](./Lista1/For1.java)                           | Demonstra uma forma de utilização do `for` utilizando uma condição booleana.           |
-| [`For2.java`](./Lista1/For2.java)                           | Trabalha múltiplas variáveis dentro do `for` e verifica números pares.                 |
-| [`For3.java`](./Lista1/For3.java)                           | Realiza uma contagem simples utilizando `for`.                                         |
-| [`For4.java`](./Lista1/For4.java)                           | Demonstra uma estrutura `for` com inicialização e incremento realizados separadamente. |
-| [`For5.java`](./Lista1/For5.java)                           | Arquivo utilizado como base para exercícios com a estrutura `for`.                     |
-| [`Fibonacci.java`](./Lista1/Fibonacci.java)                 | Gera os primeiros valores da **Sequência de Fibonacci** utilizando repetição.          |
+| Exercício | Descrição |
+| --- | --- |
+| [`HelloWorld.java`](./Lista1/HelloWorld.java) | Primeiro programa em Java, exibindo a mensagem **Olá Mundo** no console. |
+| [`CelsiusFahrenheit.java`](./Lista1/CelsiusFahrenheit.java) | Realiza a conversão de uma temperatura informada em Fahrenheit para Celsius. |
+| [`FahrenheitCelsius.java`](./Lista1/FahrenheitCelsius.java) | Exercício de conversão de temperatura utilizando entrada de dados com `Scanner`. |
+| [`DoWhile.java`](./Lista1/DoWhile.java) | Demonstra o funcionamento da estrutura de repetição `do...while`. |
+| [`While1.java`](./Lista1/While1.java) | Realiza uma contagem utilizando a estrutura `while`. |
+| [`For1.java`](./Lista1/For1.java) | Demonstra uma forma de utilização do `for` utilizando uma condição booleana. |
+| [`For2.java`](./Lista1/For2.java) | Trabalha múltiplas variáveis dentro do `for` e verifica números pares. |
+| [`For3.java`](./Lista1/For3.java) | Realiza uma contagem simples utilizando `for`. |
+| [`For4.java`](./Lista1/For4.java) | Demonstra uma estrutura `for` com inicialização e incremento realizados separadamente. |
+| [`For5.java`](./Lista1/For5.java) | Arquivo utilizado como base para exercícios com a estrutura `for`. |
+| [`Fibonacci.java`](./Lista1/Fibonacci.java) | Gera os primeiros valores da **Sequência de Fibonacci** utilizando repetição. |
 
 ---
 
@@ -51,29 +51,29 @@ Exercícios introdutórios utilizados para revisar a sintaxe do Java e diferente
 
 Nesta lista são trabalhadas principalmente as estruturas `if`, `else if`, `else` e `switch`, além de validações, operadores lógicos e entrada de dados.
 
-| Exercício                                                     | Descrição                                                                                       |
-| ------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| [`AnoBissexto.java`](./Lista2/AnoBissexto.java)               | Verifica se um ano atende às condições necessárias para ser considerado bissexto.               |
-| [`CaixaEletronico.java`](./Lista2/CaixaEletronico.java)       | Calcula a quantidade de notas necessárias para realizar determinado saque.                      |
-| [`Calculadora.java`](./Lista2/Calculadora.java)               | Estrutura de uma calculadora com operações de soma, subtração, multiplicação e divisão.         |
-| [`ClassificacaoIdade.java`](./Lista2/ClassificacaoIdade.java) | Classifica uma pessoa como criança, adolescente, adulto ou idoso de acordo com a idade.         |
-| [`Desconto.java`](./Lista2/Desconto.java)                     | Calcula desconto de uma compra dependendo do valor informado.                                   |
-| [`DiaSemana.java`](./Lista2/DiaSemana.java)                   | Utiliza `switch` para identificar o dia da semana a partir de um número.                        |
-| [`IMC.java`](./Lista2/IMC.java)                               | Calcula o **Índice de Massa Corporal (IMC)** e apresenta sua classificação.                     |
-| [`Intervalo.java`](./Lista2/Intervalo.java)                   | Verifica se um número está dentro do intervalo entre 10 e 50.                                   |
-| [`Login.java`](./Lista2/Login.java)                           | Simula uma autenticação simples utilizando usuário e senha.                                     |
-| [`LoginTentativas.java`](./Lista2/LoginTentativas.java)       | Sistema de login que limita o usuário a três tentativas de autenticação.                        |
-| [`MaiorMenorIdade.java`](./Lista2/MaiorMenorIdade.java)       | Verifica se o usuário é maior ou menor de idade e permite repetir a execução.                   |
-| [`MaiorNumero.java`](./Lista2/MaiorNumero.java)               | Compara dois números e informa qual deles possui o maior valor.                                 |
-| [`Media.java`](./Lista2/Media.java)                           | Calcula a média de duas notas e classifica o resultado como aprovado, recuperação ou reprovado. |
-| [`MenuInterativo.java`](./Lista2/MenuInterativo.java)         | Cria um menu utilizando repetição e `switch`, permanecendo ativo até a opção de saída.          |
-| [`MiniProjeto.java`](./Lista2/MiniProjeto.java)               | Simula um pequeno caixa eletrônico com login, saldo, depósito e saque.                          |
-| [`ParImpar.java`](./Lista2/ParImpar.java)                     | Verifica se um número é par ou ímpar e permite realizar novas consultas.                        |
-| [`PositivoNegativo.java`](./Lista2/PositivoNegativo.java)     | Identifica se um número é positivo, negativo ou igual a zero.                                   |
-| [`SistemaImposto.java`](./Lista2/SistemaImposto.java)         | Calcula uma porcentagem de imposto de acordo com a faixa salarial informada.                    |
-| [`Temperatura.java`](./Lista2/Temperatura.java)               | Classifica uma temperatura como fria, agradável ou quente.                                      |
-| [`TipoTriangulo.java`](./Lista2/TipoTriangulo.java)           | Classifica um triângulo como equilátero, isósceles ou escaleno.                                 |
-| [`TresNumeros.java`](./Lista2/TresNumeros.java)               | Compara três números para determinar o maior valor.                                             |
+| Exercício | Descrição |
+| --- | --- |
+| [`AnoBissexto.java`](./Lista2/AnoBissexto.java) | Verifica se um ano atende às condições necessárias para ser considerado bissexto. |
+| [`CaixaEletronico.java`](./Lista2/CaixaEletronico.java) | Calcula a quantidade de notas necessárias para realizar determinado saque. |
+| [`Calculadora.java`](./Lista2/Calculadora.java) | Estrutura de uma calculadora com operações de soma, subtração, multiplicação e divisão. |
+| [`ClassificacaoIdade.java`](./Lista2/ClassificacaoIdade.java) | Classifica uma pessoa como criança, adolescente, adulto ou idoso de acordo com a idade. |
+| [`Desconto.java`](./Lista2/Desconto.java) | Calcula desconto de uma compra dependendo do valor informado. |
+| [`DiaSemana.java`](./Lista2/DiaSemana.java) | Utiliza `switch` para identificar o dia da semana a partir de um número. |
+| [`IMC.java`](./Lista2/IMC.java) | Calcula o **Índice de Massa Corporal (IMC)** e apresenta sua classificação. |
+| [`Intervalo.java`](./Lista2/Intervalo.java) | Verifica se um número está dentro do intervalo entre 10 e 50. |
+| [`Login.java`](./Lista2/Login.java) | Simula uma autenticação simples utilizando usuário e senha. |
+| [`LoginTentativas.java`](./Lista2/LoginTentativas.java) | Sistema de login que limita o usuário a três tentativas de autenticação. |
+| [`MaiorMenorIdade.java`](./Lista2/MaiorMenorIdade.java) | Verifica se o usuário é maior ou menor de idade e permite repetir a execução. |
+| [`MaiorNumero.java`](./Lista2/MaiorNumero.java) | Compara dois números e informa qual deles possui o maior valor. |
+| [`Media.java`](./Lista2/Media.java) | Calcula a média de duas notas e classifica o resultado como aprovado, recuperação ou reprovado. |
+| [`MenuInterativo.java`](./Lista2/MenuInterativo.java) | Cria um menu utilizando repetição e `switch`, permanecendo ativo até a opção de saída. |
+| [`MiniProjeto.java`](./Lista2/MiniProjeto.java) | Simula um pequeno caixa eletrônico com login, saldo, depósito e saque. |
+| [`ParImpar.java`](./Lista2/ParImpar.java) | Verifica se um número é par ou ímpar e permite realizar novas consultas. |
+| [`PositivoNegativo.java`](./Lista2/PositivoNegativo.java) | Identifica se um número é positivo, negativo ou igual a zero. |
+| [`SistemaImposto.java`](./Lista2/SistemaImposto.java) | Calcula uma porcentagem de imposto de acordo com a faixa salarial informada. |
+| [`Temperatura.java`](./Lista2/Temperatura.java) | Classifica uma temperatura como fria, agradável ou quente. |
+| [`TipoTriangulo.java`](./Lista2/TipoTriangulo.java) | Classifica um triângulo como equilátero, isósceles ou escaleno. |
+| [`TresNumeros.java`](./Lista2/TresNumeros.java) | Compara três números para determinar o maior valor. |
 
 ---
 
@@ -81,20 +81,20 @@ Nesta lista são trabalhadas principalmente as estruturas `if`, `else if`, `else
 
 Exercícios voltados para utilização prática de `for`, `while` e `do...while`, trabalhando contadores, acumuladores e condições de parada.
 
-| Exercício                                                     | Descrição                                                                          |
-| ------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| [`Contagem.java`](./Lista3/Contagem.java)                     | Realiza uma contagem crescente utilizando `for`.                                   |
-| [`ContagemRegressiva.java`](./Lista3/ContagemRegressiva.java) | Executa uma contagem regressiva utilizando `for`.                                  |
-| [`Fatorial.java`](./Lista3/Fatorial.java)                     | Calcula o fatorial de um número informado pelo usuário.                            |
-| [`MaiorNumero.java`](./Lista3/MaiorNumero.java)               | Recebe vários números e identifica o maior valor informado.                        |
-| [`MediaValores.java`](./Lista3/MediaValores.java)             | Recebe uma quantidade definida de números e calcula a média dos valores.           |
-| [`MenuInterativo.java`](./Lista3/MenuInterativo.java)         | Mantém um menu em execução utilizando `do...while` até que o usuário escolha sair. |
-| [`NumerosPares.java`](./Lista3/NumerosPares.java)             | Exibe os números pares existentes entre 0 e 50.                                    |
-| [`PositivoNegativo.java`](./Lista3/PositivoNegativo.java)     | Analisa dez números e informa se cada um é positivo, negativo ou neutro.           |
-| [`Soma.java`](./Lista3/Soma.java)                             | Calcula a soma dos números de 1 até 100 utilizando um acumulador.                  |
-| [`SomaZero.java`](./Lista3/SomaZero.java)                     | Solicita números continuamente até que o usuário digite zero.                      |
-| [`Tabuada.java`](./Lista3/Tabuada.java)                       | Gera a tabuada de um número informado pelo usuário.                                |
-| [`ValidacaoNumero.java`](./Lista3/ValidacaoNumero.java)       | Solicita números entre 1 e 10 até que o número correto seja informado.             |
+| Exercício | Descrição |
+| --- | --- |
+| [`Contagem.java`](./Lista3/Contagem.java) | Realiza uma contagem crescente utilizando `for`. |
+| [`ContagemRegressiva.java`](./Lista3/ContagemRegressiva.java) | Executa uma contagem regressiva utilizando `for`. |
+| [`Fatorial.java`](./Lista3/Fatorial.java) | Calcula o fatorial de um número informado pelo usuário. |
+| [`MaiorNumero.java`](./Lista3/MaiorNumero.java) | Recebe vários números e identifica o maior valor informado. |
+| [`MediaValores.java`](./Lista3/MediaValores.java) | Recebe uma quantidade definida de números e calcula a média dos valores. |
+| [`MenuInterativo.java`](./Lista3/MenuInterativo.java) | Mantém um menu em execução utilizando `do...while` até que o usuário escolha sair. |
+| [`NumerosPares.java`](./Lista3/NumerosPares.java) | Exibe os números pares existentes entre 0 e 50. |
+| [`PositivoNegativo.java`](./Lista3/PositivoNegativo.java) | Analisa dez números e informa se cada um é positivo, negativo ou neutro. |
+| [`Soma.java`](./Lista3/Soma.java) | Calcula a soma dos números de 1 até 100 utilizando um acumulador. |
+| [`SomaZero.java`](./Lista3/SomaZero.java) | Solicita números continuamente até que o usuário digite zero. |
+| [`Tabuada.java`](./Lista3/Tabuada.java) | Gera a tabuada de um número informado pelo usuário. |
+| [`ValidacaoNumero.java`](./Lista3/ValidacaoNumero.java) | Solicita números entre 1 e 10 até que o número correto seja informado. |
 
 ---
 
@@ -142,21 +142,41 @@ O `for-each`, utilizado nos exercícios mais recentes, facilita a leitura dos el
 
 ---
 
-## 📕 Lista 4 — Arrays
+## 📕 Lista 4 — Arrays e matrizes
 
-A Lista 4 reúne exercícios específicos de manipulação de arrays, trabalhando leitura, exibição, soma, média, busca, contagem de ocorrências, identificação de valores pares, inversão e ordenação.
+A Lista 4 começou com exercícios de **arrays unidimensionais** e, na segunda parte, avançou para **matrizes `3x3`**. Os exercícios trabalham leitura, exibição, soma, média, busca, contagem, inversão, ordenação, remoção de duplicados e operações matriciais.
 
-| Exercício | Descrição |
-| --- | --- |
-| [`LeituraExibicao.java`](./Lista4/LeituraExibicao.java) | Lê cinco números, armazena os valores em um array, exibe cada posição individualmente e apresenta o vetor completo com `Arrays.toString()`. |
-| [`SomaElementos.java`](./Lista4/SomaElementos.java) | Lê dez números e utiliza uma variável acumuladora para calcular a soma de todos os elementos armazenados no array. |
-| [`Media.java`](./Lista4/Media.java) | Lê oito números, soma os elementos e calcula a média utilizando conversão para `float` para preservar a parte decimal do resultado. |
-| [`MaiorMenorValor.java`](./Lista4/MaiorMenorValor.java) | Lê oito números e compara os valores durante o preenchimento para identificar o **menor valor** armazenado no vetor. |
-| [`ContagemDePares.java`](./Lista4/ContagemDePares.java) | Lê oito números, identifica os valores pares com o operador `%`, armazena-os em um novo array e informa também a quantidade encontrada. |
-| [`InverterArray.java`](./Lista4/InverterArray.java) | Lê cinco números e cria um segundo vetor em ordem inversa, acessando o array original de trás para frente com `vet.length - 1 - i`. |
-| [`BuscaDeElemento.java`](./Lista4/BuscaDeElemento.java) | Lê dez números e permite realizar buscas repetidas no vetor, informando as posições e quantas vezes o valor procurado aparece. |
-| [`ContagemDeOcorrencias.java`](./Lista4/ContagemDeOcorrencias.java) | Lê dez números e um valor `X`, percorre o array e informa quantas vezes esse valor aparece. |
-| [`Ordenacao.java`](./Lista4/Ordenacao.java) | Lê cinco números, exibe o vetor original e utiliza `Arrays.sort()` para reorganizar seus elementos em ordem crescente. |
+### Parte 1 — Arrays
+
+| Exercício | Descrição | Conceitos praticados |
+| --- | --- | --- |
+| [`LeituraExibicao.java`](./Lista4/LeituraExibicao.java) | Lê cinco números, armazena os valores em um array, exibe cada posição e apresenta o vetor completo. | array, índice, `for`, `Arrays.toString()` |
+| [`SomaElementos.java`](./Lista4/SomaElementos.java) | Lê dez números e calcula a soma de todos os elementos. | array, acumulador, `for` |
+| [`Media.java`](./Lista4/Media.java) | Lê oito números, soma os elementos e calcula a média com resultado decimal. | array, acumulador, casting para `float` |
+| [`MaiorMenorValor.java`](./Lista4/MaiorMenorValor.java) | Lê oito números e identifica o **menor valor** armazenado. | comparação, inicialização, array |
+| [`ContagemDePares.java`](./Lista4/ContagemDePares.java) | Identifica números pares, guarda os pares em outro vetor e informa a quantidade. | `%`, contador, segundo array, `Arrays.copyOf()` |
+| [`InverterArray.java`](./Lista4/InverterArray.java) | Cria um segundo vetor contendo os valores na ordem inversa. | índices, `length - 1 - i`, segundo array |
+| [`BuscaDeElemento.java`](./Lista4/BuscaDeElemento.java) | Permite buscas repetidas, informa as posições e conta as ocorrências do valor procurado. | busca linear, contador, `do...while` |
+| [`ContagemDeOcorrencias.java`](./Lista4/ContagemDeOcorrencias.java) | Conta quantas vezes um valor `X` aparece entre os dez elementos. | busca, comparação, contador |
+| [`Ordenacao.java`](./Lista4/Ordenacao.java) | Exibe o vetor original e o reorganiza em ordem crescente. | `Arrays.sort()`, ordenação |
+| [`RemoverDuplicado.java`](./Lista4/RemoverDuplicado.java) | Lê dez números e exibe somente os valores distintos, preservando a ordem em que aparecem. | Stream API, `Arrays.stream()`, `distinct()`, `toArray()` |
+
+### Parte 2 — Matrizes
+
+O commit **“Exercicios da Lista 4 de Arrays - parte 2”** adicionou exercícios que aprofundam matrizes bidimensionais e operações entre linhas e colunas.
+
+| Exercício | Descrição | Conceitos praticados |
+| --- | --- | --- |
+| [`LeituraDeMatriz.java`](./Lista4/LeituraDeMatriz.java) | Lê os nove elementos de uma matriz `3x3` e depois exibe a matriz em formato de linhas e colunas. | matriz, índices `i` e `j`, laços aninhados |
+| [`SomaDaMatriz.java`](./Lista4/SomaDaMatriz.java) | Lê uma matriz `3x3` e acumula a soma de todos os seus elementos. | matriz, acumulador, laços aninhados |
+| [`MaiorValorDaMatriz.java`](./Lista4/MaiorValorDaMatriz.java) | Percorre uma matriz para encontrar e exibir o maior valor informado. | comparação, matriz, variável de controle |
+| [`ContagemDeParesMatriz.java`](./Lista4/ContagemDeParesMatriz.java) | Identifica os valores pares da matriz, evita repetir valores iguais e cria um vetor final somente com os pares únicos. | `%`, `boolean`, busca de duplicados, `break`, `Arrays.copyOf()` |
+| [`SomaDiagonalPrincipal.java`](./Lista4/SomaDiagonalPrincipal.java) | Soma os elementos da diagonal principal de uma matriz `3x3`. | `i == j`, diagonal principal, acumulador |
+| [`DiagonalSecundaria.java`](./Lista4/DiagonalSecundaria.java) | Soma os elementos da diagonal secundária de uma matriz `3x3`. | `i + j == mat.length - 1`, diagonal secundária |
+| [`Identidade.java`](./Lista4/Identidade.java) | Verifica se a matriz informada é uma matriz identidade: `1` na diagonal principal e `0` nas demais posições. | matriz identidade, `i == j`, condicionais |
+| [`MatrizTransposta.java`](./Lista4/MatrizTransposta.java) | Exibe a matriz original e depois sua transposta, invertendo a forma de percorrer linhas e colunas. | transposição, troca da ordem dos índices |
+| [`MultiplicacaoPorEscalar.java`](./Lista4/MultiplicacaoPorEscalar.java) | Multiplica todos os elementos de uma matriz por um número informado pelo usuário. | escalar, laços aninhados, atualização de elementos |
+| [`SomaDeDuasMatrizes.java`](./Lista4/SomaDeDuasMatrizes.java) | Lê duas matrizes `3x3`, soma elementos de posições correspondentes e armazena o resultado em uma terceira matriz. | três matrizes, soma posição a posição, índices correspondentes |
 
 ### 💡 Como pensar em arrays
 
@@ -177,13 +197,13 @@ Em um vetor com cinco posições:
 vet.length
 ```
 
-retorna `5`, enquanto o último índice é `4`. Por isso, expressões como:
+retorna `5`, enquanto o último índice é `4`. Por isso:
 
 ```java
 vet.length - 1
 ```
 
-são utilizadas para acessar a última posição.
+representa o último índice válido.
 
 ### 🔍 Busca e contagem de ocorrências
 
@@ -203,7 +223,17 @@ Em `InverterArray.java`, a expressão:
 vet.length - 1 - i
 ```
 
-faz a leitura do vetor de trás para frente. Se o vetor possui cinco posições, os índices acessados serão `4`, `3`, `2`, `1` e `0`.
+faz a leitura do vetor de trás para frente. Para um vetor com cinco posições:
+
+```text
+i = 0 → 5 - 1 - 0 = 4
+i = 1 → 5 - 1 - 1 = 3
+i = 2 → 5 - 1 - 2 = 2
+i = 3 → 5 - 1 - 3 = 1
+i = 4 → 5 - 1 - 4 = 0
+```
+
+Assim, os índices acessados são `4`, `3`, `2`, `1` e `0`.
 
 ### 📊 Ordenação
 
@@ -217,13 +247,213 @@ reorganiza os números do vetor em ordem crescente. Por exemplo:
 
 ```text
 [50, 10, 30, 20, 40]
-```
-
-passa a ser:
-
-```text
+        ↓
 [10, 20, 30, 40, 50]
 ```
+
+### 🧹 Remoção de duplicados com Stream API
+
+`RemoverDuplicado.java` utiliza uma forma mais compacta do Java:
+
+```java
+Arrays.stream(vet).distinct().toArray()
+```
+
+O fluxo pode ser lido assim:
+
+```text
+array vet
+   ↓
+Arrays.stream(vet)
+   ↓
+transforma o array em um fluxo de valores
+   ↓
+distinct()
+   ↓
+remove valores repetidos
+   ↓
+toArray()
+   ↓
+transforma o resultado novamente em array
+```
+
+Esse exercício já utiliza **Stream API**, um recurso mais avançado que os laços tradicionais usados nos exercícios anteriores. Ele foi mantido e documentado exatamente porque aparece no código atual.
+
+### 🧮 Como pensar em uma matriz `3x3`
+
+Uma matriz pode ser imaginada como uma tabela:
+
+```text
+            coluna
+          0    1    2
+       +----+----+----+
+linha 0| a  | b  | c  |
+       +----+----+----+
+linha 1| d  | e  | f  |
+       +----+----+----+
+linha 2| g  | h  | i  |
+       +----+----+----+
+```
+
+Em Java:
+
+```java
+mat[i][j]
+```
+
+`i` representa a **linha** e `j` representa a **coluna**.
+
+Por isso, normalmente são utilizados dois `for`:
+
+```java
+for (int i = 0; i < mat.length; i++) {
+    for (int j = 0; j < mat[i].length; j++) {
+        // trabalha com mat[i][j]
+    }
+}
+```
+
+O primeiro laço escolhe uma linha e o segundo percorre as colunas daquela linha.
+
+### ↘️ Diagonal principal
+
+Na diagonal principal, linha e coluna possuem o mesmo índice:
+
+```text
+X . .
+. X .
+. . X
+```
+
+Por isso o código utiliza:
+
+```java
+if (i == j)
+```
+
+Em uma matriz `3x3`, são selecionadas as posições `[0][0]`, `[1][1]` e `[2][2]`.
+
+### ↙️ Diagonal secundária
+
+A diagonal secundária segue o sentido contrário:
+
+```text
+. . X
+. X .
+X . .
+```
+
+O código identifica essas posições com:
+
+```java
+if (i + j == mat.length - 1)
+```
+
+Para uma matriz de tamanho `3`, `mat.length - 1` vale `2`. Portanto:
+
+```text
+[0][2] → 0 + 2 = 2
+[1][1] → 1 + 1 = 2
+[2][0] → 2 + 0 = 2
+```
+
+### 🔁 Matriz transposta
+
+Transpor uma matriz significa transformar suas linhas em colunas.
+
+```text
+Original          Transposta
+1  2  3           1  4  7
+4  5  6     →     2  5  8
+7  8  9           3  6  9
+```
+
+No exercício, isso é feito sem criar uma segunda matriz: o programa simplesmente troca a ordem dos laços durante a impressão, lendo `mat[i][j]` primeiro por coluna e depois por linha.
+
+### 🔢 Matriz identidade
+
+Uma matriz identidade possui `1` na diagonal principal e `0` em todas as outras posições:
+
+```text
+1 0 0
+0 1 0
+0 0 1
+```
+
+O exercício utiliza `i == j` para identificar a diagonal principal. Nas posições da diagonal, o valor precisa ser `1`; fora dela, precisa ser `0`.
+
+### ✖️ Multiplicação por escalar
+
+Um **escalar** é um único número utilizado para multiplicar todos os elementos da matriz.
+
+Se o escalar for `2`:
+
+```text
+1 2       2 4
+3 4   →   6 8
+```
+
+O código faz essa operação posição por posição:
+
+```java
+mat[i][j] = mat[i][j] * num;
+```
+
+### ➕ Soma de duas matrizes
+
+Duas matrizes do mesmo tamanho podem ser somadas posição por posição:
+
+```text
+A          B          Resultado
+1 2        5 6        6  8
+3 4   +    7 8   =   10 12
+```
+
+No exercício existem três matrizes:
+
+```java
+mat[i][j]   // primeira
+mat2[i][j]  // segunda
+mat3[i][j]  // resultado
+```
+
+A operação central é:
+
+```java
+mat3[i][j] = mat[i][j] + mat2[i][j];
+```
+
+### 🧩 Pares únicos em uma matriz
+
+`ContagemDeParesMatriz.java` junta vários conceitos estudados anteriormente. Primeiro identifica se um número é par:
+
+```java
+mat[i][j] % 2 == 0
+```
+
+Depois verifica se aquele valor já está no vetor `pares`. A variável:
+
+```java
+boolean jaExiste = false;
+```
+
+funciona como uma sinalização. Caso o valor seja encontrado, ela muda para `true` e o `break` encerra a busca naquele momento.
+
+No final:
+
+```java
+Arrays.copyOf(pares, cont)
+```
+
+cria um array exatamente do tamanho necessário, evitando que as posições não utilizadas apareçam preenchidas com zeros.
+
+### ⚠️ Pontos observados no código atual
+
+Os arquivos `.java` foram preservados sem alterações. Durante a documentação, alguns pontos foram identificados para revisão futura:
+
+* **`MaiorValorDaMatriz.java`**: a condição `if (i == 0)` redefine `maior` para **todos os elementos da primeira linha**, e não apenas para o primeiro elemento da matriz. Isso pode fazer um valor maior localizado no início da primeira linha ser perdido. A intenção de inicialização provavelmente seria testar apenas a primeira posição, como `i == 0 && j == 0`. O código não foi alterado nesta atualização.
+* **`MatrizTransposta.java`**: as variáveis `pares` e `cont` foram declaradas, mas não são utilizadas; o texto exibido contém `Tranposta` em vez de `Transposta`; e o `Scanner` não é fechado no final. A lógica de transposição exibida continua funcionando independentemente dessas redundâncias.
+* **`MultiplicacaoPorEscalar.java`** e **`SomaDeDuasMatrizes.java`**: o `Scanner` é criado, mas não é fechado ao final. Isso não muda a proposta dos exercícios, mas é uma melhoria de organização de recursos que pode ser feita posteriormente.
 
 ---
 
@@ -291,13 +521,53 @@ Até o momento, as atividades já trabalham:
 * estruturas de repetição;
 * contadores e acumuladores;
 * arrays unidimensionais;
-* busca, inversão e ordenação de arrays;
+* busca, contagem, inversão e ordenação de arrays;
+* remoção de valores duplicados;
+* uso introdutório da Stream API com `distinct()`;
 * matrizes bidimensionais;
 * matrizes irregulares;
 * laços aninhados;
+* leitura e exibição de matrizes;
+* soma dos elementos de matrizes;
+* diagonal principal e diagonal secundária;
+* matriz identidade;
+* matriz transposta;
+* multiplicação de matriz por escalar;
+* soma de duas matrizes;
+* busca de valores pares únicos em matrizes;
 * `for-each`;
 * métodos com parâmetros e retorno;
 * organização inicial do código em métodos.
+
+A progressão atual pode ser resumida assim:
+
+```text
+Fundamentos de Java
+        ↓
+Condicionais
+        ↓
+Estruturas de repetição
+        ↓
+Contadores e acumuladores
+        ↓
+Arrays
+        ↓
+Busca, contagem, inversão e ordenação
+        ↓
+Duplicados e cópias de arrays
+        ↓
+Matrizes
+        ↓
+Laços aninhados
+        ↓
+Diagonais, transposição e identidade
+        ↓
+Operações entre matrizes
+        ↓
+Métodos e organização do código
+        ↓
+Programação Orientada a Objetos
+```
 
 Conforme o avanço das aulas, os próximos exercícios poderão aprofundar conteúdos como:
 
