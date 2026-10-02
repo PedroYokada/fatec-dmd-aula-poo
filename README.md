@@ -144,7 +144,7 @@ O `for-each`, utilizado nos exercícios mais recentes, facilita a leitura dos el
 
 ## 📕 Lista 4 — Arrays e matrizes
 
-A Lista 4 começou com exercícios de **arrays unidimensionais** e, na segunda parte, avançou para **matrizes `3x3`**. Os exercícios trabalham leitura, exibição, soma, média, busca, contagem, inversão, ordenação, remoção de duplicados e operações matriciais.
+A Lista 4 começou com exercícios de **arrays unidimensionais**, avançou na segunda parte para **matrizes `3x3`** e, na parte final, passou a trabalhar busca em matrizes, soma por linhas e colunas, matrizes de caracteres, rotação e comparação entre posições. Os exercícios trabalham leitura, exibição, soma, média, busca, contagem, inversão, ordenação, remoção de duplicados e operações matriciais.
 
 ### Parte 1 — Arrays
 
@@ -177,6 +177,19 @@ O commit **“Exercicios da Lista 4 de Arrays - parte 2”** adicionou exercíci
 | [`MatrizTransposta.java`](./Lista4/MatrizTransposta.java) | Exibe a matriz original e depois sua transposta, invertendo a forma de percorrer linhas e colunas. | transposição, troca da ordem dos índices |
 | [`MultiplicacaoPorEscalar.java`](./Lista4/MultiplicacaoPorEscalar.java) | Multiplica todos os elementos de uma matriz por um número informado pelo usuário. | escalar, laços aninhados, atualização de elementos |
 | [`SomaDeDuasMatrizes.java`](./Lista4/SomaDeDuasMatrizes.java) | Lê duas matrizes `3x3`, soma elementos de posições correspondentes e armazena o resultado em uma terceira matriz. | três matrizes, soma posição a posição, índices correspondentes |
+
+
+### Parte 3 — Parte final: aplicações com matrizes
+
+O commit **“Parte final da lista 4”** adicionou cinco exercícios que ampliam o trabalho com matrizes. Nesta etapa aparecem busca em uma matriz maior, acumuladores separados por linha e coluna, matriz de caracteres, rotação de 90° e comparação de cada posição com todas as outras.
+
+| Exercício | Descrição | Conceitos praticados |
+| --- | --- | --- |
+| [`BuscaEmMatriz.java`](./Lista4/BuscaEmMatriz.java) | Lê uma matriz `5x5`, solicita um número para busca e informa todas as posições em que ele foi encontrado. A execução pode ser repetida com `do...while`. | matriz `5x5`, busca, `boolean`, `do...while`, índices `i` e `j` |
+| [`SomaPorLinhaeColuna.java`](./Lista4/SomaPorLinhaeColuna.java) | Lê uma matriz `3x3` e mantém acumuladores separados para calcular a soma de cada linha e de cada coluna. | matriz, arrays auxiliares, acumuladores, `linhas[i]`, `colunas[j]` |
+| [`JogoDaVelha.java`](./Lista4/JogoDaVelha.java) | Cria um tabuleiro `3x3` do tipo `char`, preenche todas as posições com `'-'` e imprime o tabuleiro. | `char[][]`, matriz de caracteres, laços aninhados |
+| [`RotacaoDeMatriz.java`](./Lista4/RotacaoDeMatriz.java) | Lê uma matriz `3x3`, cria uma segunda matriz e reorganiza os elementos para representar uma rotação de **90° para a direita**. | segunda matriz, transformação de índices, `mat.length - 1 - i`, rotação |
+| [`SudokuSimplificado.java`](./Lista4/SudokuSimplificado.java) | Lê uma matriz `3x3` e compara cada posição com todas as demais. Se encontrar o mesmo valor em duas posições diferentes, altera a condição para `false`. | quatro laços aninhados, comparação de coordenadas, `boolean`, operador `||`, detecção de repetidos |
 
 ### 💡 Como pensar em arrays
 
@@ -447,6 +460,258 @@ Arrays.copyOf(pares, cont)
 
 cria um array exatamente do tamanho necessário, evitando que as posições não utilizadas apareçam preenchidas com zeros.
 
+
+### ➕ Soma de cada linha e de cada coluna
+
+`SomaPorLinhaeColuna.java` utiliza dois arrays auxiliares:
+
+```java
+int[] linhas = new int[3];
+int[] colunas = new int[3];
+```
+
+Cada posição desses arrays guarda um resultado diferente:
+
+```text
+linhas[0]  → soma da linha 1
+linhas[1]  → soma da linha 2
+linhas[2]  → soma da linha 3
+
+colunas[0] → soma da coluna 1
+colunas[1] → soma da coluna 2
+colunas[2] → soma da coluna 3
+```
+
+Durante a leitura, o mesmo valor da matriz participa de dois acumuladores:
+
+```java
+linhas[i] += mat[i][j];
+colunas[j] += mat[i][j];
+```
+
+A diferença importante é que `i` e `j` são **índices**, enquanto `mat[i][j]` é o **valor armazenado naquela posição**.
+
+Para a matriz:
+
+```text
+1  2  3
+4  5  6
+7  8  9
+```
+
+as somas são:
+
+```text
+linhas  → 6, 15, 24
+colunas → 12, 15, 18
+```
+
+### 🔎 Busca de um valor em uma matriz
+
+Em `BuscaEmMatriz.java`, cada posição é comparada com o número procurado:
+
+```java
+if (mat[i][j] == num)
+```
+
+A variável:
+
+```java
+boolean encontrado = false;
+```
+
+funciona como uma sinalização. Ela começa como `false` e passa para `true` quando existe pelo menos uma correspondência.
+
+O programa também utiliza:
+
+```java
+do {
+    // leitura e busca
+} while (opcao == 1);
+```
+
+Assim, depois de uma busca, o usuário pode escolher executar novamente.
+
+### ❌⭕ Matriz de caracteres com `char[][]`
+
+`JogoDaVelha.java` utiliza:
+
+```java
+char[][] velha = new char[3][3];
+```
+
+Uma matriz `char[][]` armazena **caracteres**, por isso elementos como:
+
+```java
+'X'
+'O'
+'-'
+```
+
+podem ser armazenados diretamente. No arquivo atual, todas as posições são inicializadas com:
+
+```java
+velha[i][j] = '-';
+```
+
+e o resultado impresso é um tabuleiro vazio:
+
+```text
+-  -  -
+-  -  -
+-  -  -
+```
+
+### 🔄 Rotação de 90° para a direita
+
+A operação principal de `RotacaoDeMatriz.java` é:
+
+```java
+rotacionada[j][mat.length - 1 - i] = mat[i][j];
+```
+
+Ela pode ser lida como:
+
+```text
+posição antiga: [i][j]
+
+nova linha  = j
+nova coluna = última posição - i
+```
+
+Em uma matriz `3x3`, `mat.length - 1` vale `2`. Assim, a parte:
+
+```java
+mat.length - 1 - i
+```
+
+faz:
+
+```text
+i = 0 → 2
+i = 1 → 1
+i = 2 → 0
+```
+
+Isso inverte a posição da linha antiga quando ela passa a participar da nova coluna.
+
+Exemplo:
+
+```text
+Original          90° para a direita
+
+1  2  3           7  4  1
+4  5  6     →     8  5  2
+7  8  9           9  6  3
+```
+
+Uma forma curta de memorizar é:
+
+```text
+coluna antiga vira nova linha
+linha antiga vira nova coluna ao contrário
+```
+
+### 🧩 Comparando cada posição com todas as outras
+
+`SudokuSimplificado.java` utiliza quatro laços `for`:
+
+```java
+for (int i = 0; i < 3; i++) {
+    for (int j = 0; j < 3; j++) {
+        for (int x = 0; x < 3; x++) {
+            for (int y = 0; y < 3; y++) {
+                // comparação
+            }
+        }
+    }
+}
+```
+
+Os pares de variáveis têm funções diferentes:
+
+```text
+i e j → posição que está sendo analisada
+x e y → posição usada para comparação
+
+matriz[i][j] → valor atual
+matriz[x][y] → valor comparado
+```
+
+Os dois primeiros laços escolhem uma posição. Os dois últimos percorrem novamente a matriz inteira para compará-la com todas as posições.
+
+Em uma matriz `3x3`, existem 9 posições. Portanto, esse processo considera aproximadamente:
+
+```text
+9 posições × 9 posições = 81 comparações
+```
+
+### 🧠 Entendendo `(i != x || j != y)`
+
+A condição:
+
+```java
+(i != x || j != y)
+```
+
+serve para verificar se `[i][j]` e `[x][y]` representam **posições diferentes**.
+
+O operador `||` significa **OU**. Portanto:
+
+```text
+i != x → a linha é diferente
+OU
+j != y → a coluna é diferente
+```
+
+Se pelo menos uma das duas coordenadas for diferente, estamos olhando para outra posição.
+
+Exemplo, considerando a posição atual `[1][1]`:
+
+```text
+Comparação com [1][1]
+i != x → 1 != 1 → false
+j != y → 1 != 1 → false
+
+false || false → false
+```
+
+É a mesma posição, então a comparação deve ser ignorada.
+
+Agora com `[1][2]`:
+
+```text
+i != x → 1 != 1 → false
+j != y → 1 != 2 → true
+
+false || true → true
+```
+
+É outra posição.
+
+E com `[0][1]`:
+
+```text
+i != x → 1 != 0 → true
+j != y → 1 != 1 → false
+
+true || false → true
+```
+
+Também é outra posição.
+
+Por isso, a condição completa:
+
+```java
+if ((i != x || j != y) && (matriz[i][j] == matriz[x][y]))
+```
+
+pode ser lida como:
+
+> **Se for outra posição e o valor for igual, existe um número repetido.**
+
+A primeira parte evita comparar um elemento com ele mesmo. A segunda verifica se os valores são iguais.
+
 ### ⚠️ Pontos observados no código atual
 
 Os arquivos `.java` foram preservados sem alterações. Durante a documentação, alguns pontos foram identificados para revisão futura:
@@ -454,6 +719,9 @@ Os arquivos `.java` foram preservados sem alterações. Durante a documentação
 * **`MaiorValorDaMatriz.java`**: a condição `if (i == 0)` redefine `maior` para **todos os elementos da primeira linha**, e não apenas para o primeiro elemento da matriz. Isso pode fazer um valor maior localizado no início da primeira linha ser perdido. A intenção de inicialização provavelmente seria testar apenas a primeira posição, como `i == 0 && j == 0`. O código não foi alterado nesta atualização.
 * **`MatrizTransposta.java`**: as variáveis `pares` e `cont` foram declaradas, mas não são utilizadas; o texto exibido contém `Tranposta` em vez de `Transposta`; e o `Scanner` não é fechado no final. A lógica de transposição exibida continua funcionando independentemente dessas redundâncias.
 * **`MultiplicacaoPorEscalar.java`** e **`SomaDeDuasMatrizes.java`**: o `Scanner` é criado, mas não é fechado ao final. Isso não muda a proposta dos exercícios, mas é uma melhoria de organização de recursos que pode ser feita posteriormente.
+* **`SomaPorLinhaeColuna.java`**: a seção de saída referente às colunas está correta, mas o texto interno imprime **"Soma da linha"** em vez de **"Soma da coluna"**. O cálculo de `colunas[j]` continua correto; o problema está apenas no rótulo exibido.
+* **`JogoDaVelha.java` da Lista 4**: o arquivo cria um `Scanner`, mas não utiliza entrada do usuário nem fecha o objeto. No estado atual, o exercício apenas inicializa e imprime um tabuleiro vazio; ainda não implementa jogadas.
+* **`SudokuSimplificado.java`**: apesar do nome do arquivo, o código atual não verifica regras completas de Sudoku por linha, coluna ou bloco. Ele verifica se existe **qualquer valor repetido em posições diferentes da matriz inteira**. Além disso, o `Scanner` não é fechado e o resultado final é exibido apenas como `true` ou `false`.
 
 ---
 
@@ -535,6 +803,15 @@ Até o momento, as atividades já trabalham:
 * multiplicação de matriz por escalar;
 * soma de duas matrizes;
 * busca de valores pares únicos em matrizes;
+* soma individual de linhas e colunas;
+* busca de elementos em matrizes com sinalização por `boolean`;
+* repetição de operações com `do...while`;
+* matrizes de caracteres com `char[][]`;
+* rotação de matriz em 90°;
+* transformação de índices entre matriz original e matriz rotacionada;
+* comparação entre duas posições usando `i`, `j`, `x` e `y`;
+* detecção de valores repetidos com quatro laços aninhados;
+* operadores lógicos aplicados à comparação de coordenadas;
 * `for-each`;
 * métodos com parâmetros e retorno;
 * organização inicial do código em métodos.
@@ -563,6 +840,12 @@ Laços aninhados
 Diagonais, transposição e identidade
         ↓
 Operações entre matrizes
+        ↓
+Busca, soma por linhas e colunas
+        ↓
+Rotação e transformação de índices
+        ↓
+Comparação entre posições e detecção de repetidos
         ↓
 Métodos e organização do código
         ↓
