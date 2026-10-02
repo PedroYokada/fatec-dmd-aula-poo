@@ -723,6 +723,318 @@ Os arquivos `.java` foram preservados sem alterações. Durante a documentação
 * **`JogoDaVelha.java` da Lista 4**: o arquivo cria um `Scanner`, mas não utiliza entrada do usuário nem fecha o objeto. No estado atual, o exercício apenas inicializa e imprime um tabuleiro vazio; ainda não implementa jogadas.
 * **`SudokuSimplificado.java`**: apesar do nome do arquivo, o código atual não verifica regras completas de Sudoku por linha, coluna ou bloco. Ele verifica se existe **qualquer valor repetido em posições diferentes da matriz inteira**. Além disso, o `Scanner` não é fechado e o resultado final é exibido apenas como `true` ou `false`.
 
+
+## 📒 Lista 5 — Funções, métodos e modularização
+
+A Lista 5 marca uma nova etapa do repositório: em vez de concentrar toda a lógica dentro do método `main`, os exercícios passam a **separar responsabilidades em métodos menores**. A ideia central é fazer cada método cuidar de uma tarefa específica, receber apenas os dados de que precisa e, quando necessário, devolver um resultado com `return`.
+
+Os três commits mais recentes da lista — **“Inicio da lista 5”**, **“Continuidade da lista 5”** e **“Continuidade da lista 5 17:36”** — adicionaram os exercícios abaixo.
+
+| Exercício | Descrição | Conceitos praticados |
+| --- | --- | --- |
+| [`SeparandoImpressao.java`](./Lista5/SeparandoImpressao.java) | Divide a impressão do título e do menu em dois métodos diferentes, chamados pelo `main`. | `void`, chamada de métodos, separação de responsabilidades |
+| [`SeparandoCalculo.java`](./Lista5/SeparandoCalculo.java) | Separa o cálculo de uma multiplicação da exibição do resultado. O método `operacao()` retorna o valor calculado e outro método imprime o resultado. | parâmetros, `return`, tipo `int`, fluxo entre métodos |
+| [`SeparandoValidacao.java`](./Lista5/SeparandoValidacao.java) | Lê um número, verifica se ele é par com um método que retorna `boolean` e envia o resultado para outro método responsável pela mensagem. | `boolean`, `% 2`, parâmetros, retorno, `Scanner` |
+| [`SistemaDeNotas.java`](./Lista5/SistemaDeNotas.java) | Lê três notas por meio de um método, calcula a média, classifica a situação do aluno e exibe o resultado utilizando métodos separados. | `double`, `String`, retorno, média aritmética, condicionais |
+| [`CalculadoraOrganizada.java`](./Lista5/CalculadoraOrganizada.java) | Organiza uma calculadora em métodos específicos para menu, leitura e quatro operações matemáticas, deixando o `main` responsável por coordenar o fluxo. | modularização, parâmetros, retorno `double`, validação de opção, divisão por zero |
+| [`TabuadaModular.java`](./Lista5/TabuadaModular.java) | Lê um número, cria uma linha da tabuada em um método e utiliza outro método com `for` para repetir as multiplicações de 1 a 10. | composição de métodos, `for`, parâmetros, reutilização |
+| [`ContadorInteligente.java`](./Lista5/ContadorInteligente.java) | Separa a exibição dos números de 1 a 100, dos pares e dos ímpares em três métodos diferentes. | métodos `void`, `for`, operador `%`, pares e ímpares |
+| [`OrganizandoEntradaDeDados.java`](./Lista5/OrganizandoEntradaDeDados.java) | Separa a leitura de nome, idade e cidade e depois envia os três dados para um método que monta o resumo final. | `Scanner`, `String`, `int`, retorno, parâmetros, `nextLine()` |
+| [`SistemaBancarioSimples.java`](./Lista5/SistemaBancarioSimples.java) | Simula operações bancárias simples, separando menu, depósito, saque e consulta de saldo em métodos. | estado do saldo, retorno `double`, parâmetros, condicionais, menu |
+| [`SistemaDeLogin.java`](./Lista5/SistemaDeLogin.java) | Separa leitura de usuário, leitura de senha, validação das credenciais e exibição do resultado. | `String`, `.equals()`, operador `&&`, retorno e validação |
+| [`JogoDeAdivinhacao.java`](./Lista5/JogoDeAdivinhacao.java) | Sorteia um número entre 1 e 100 e organiza o jogo em métodos para palpite, verificação de acerto, dica e mensagem de vitória. | `Random`, `while`, `boolean`, contador, métodos com responsabilidades específicas |
+| [`PedraPapelTesoura.java`](./Lista5/PedraPapelTesoura.java) | Arquivo-base criado para um futuro exercício de Pedra, Papel e Tesoura. No estado atual, contém apenas a classe e o método `main` vazio. | estrutura inicial de classe e `main` |
+
+### 🧱 O que significa modularizar um programa?
+
+Modularizar significa **dividir um problema maior em partes menores**.
+
+Em vez de escrever tudo dentro de:
+
+```java
+public static void main(String[] args)
+```
+
+o programa passa a ter pequenos métodos especializados:
+
+```text
+main()
+  ↓
+lê dados
+  ↓
+chama método de cálculo
+  ↓
+recebe resultado
+  ↓
+chama método de exibição
+```
+
+Uma analogia simples é pensar em uma cozinha:
+
+```text
+main()            → organiza o pedido
+lerDados()        → recebe os ingredientes
+calcular()        → prepara a receita
+validar()         → confere o resultado
+mostrarResultado()→ entrega o prato
+```
+
+Cada método possui uma responsabilidade própria.
+
+### ↩️ `void` ou um tipo de retorno?
+
+Quando um método apenas executa uma ação e **não precisa devolver um valor**, utiliza-se `void`:
+
+```java
+public static void mostrarMenu() {
+    System.out.println("Menu");
+}
+```
+
+Quando o método precisa produzir um valor para outra parte do programa, o tipo aparece no lugar de `void`:
+
+```java
+public static double somar(double n1, double n2) {
+    return n1 + n2;
+}
+```
+
+Nesse exemplo:
+
+```text
+somar(10, 20)
+      ↓
+return 30
+      ↓
+resultado = 30
+```
+
+A regra básica é:
+
+```text
+void     → executa, mas não devolve valor
+int      → devolve um inteiro
+double   → devolve um número decimal
+String   → devolve texto
+boolean  → devolve true ou false
+```
+
+### 📦 Parâmetros — dados que entram no método
+
+Os parâmetros representam os dados que um método precisa receber para trabalhar.
+
+Exemplo:
+
+```java
+public static double depositar(double saldo, double valor)
+```
+
+Esse método precisa de dois dados:
+
+```text
+saldo → quanto existe antes da operação
+valor → quanto será depositado
+```
+
+Quando o programa chama:
+
+```java
+saldo = depositar(saldo, valor);
+```
+
+os valores entram no método, são processados e o novo saldo retorna para o `main`.
+
+### 🔄 Ligando a saída de um método à entrada de outro
+
+Um dos conceitos mais importantes desta lista é fazer os métodos **conversarem entre si**.
+
+Em `SeparandoValidacao.java`:
+
+```java
+int num = lerNumero(sc);
+
+boolean resultado = ehPar(num);
+
+mostrarResultado(num, resultado);
+```
+
+O fluxo é:
+
+```text
+lerNumero()
+    ↓
+   10
+    ↓
+ehPar(10)
+    ↓
+  true
+    ↓
+mostrarResultado(10, true)
+```
+
+O valor retornado por um método pode ser armazenado em uma variável e depois enviado como parâmetro para outro método.
+
+### 🌐 Escopo das variáveis
+
+Uma variável criada dentro de um método pertence àquele método.
+
+Por exemplo:
+
+```java
+public static int lerNumero(Scanner sc) {
+    int numero = sc.nextInt();
+    return numero;
+}
+```
+
+A variável `numero` existe dentro de `lerNumero()`. Para o `main` utilizá-la, o método precisa devolver o valor:
+
+```java
+int numero = lerNumero(sc);
+```
+
+Por isso, quando outro método precisa de um valor, normalmente ele deve recebê-lo por parâmetro.
+
+### ⌨️ Passando o `Scanner` como parâmetro
+
+Vários exercícios da Lista 5 seguem este padrão:
+
+```java
+Scanner sc = new Scanner(System.in);
+
+int numero = lerNumero(sc);
+```
+
+e:
+
+```java
+public static int lerNumero(Scanner sc) {
+    return sc.nextInt();
+}
+```
+
+Assim, um único `Scanner` é criado no `main` e compartilhado com os métodos que precisam fazer leitura.
+
+Isso evita criar vários objetos `Scanner` para a mesma entrada `System.in`.
+
+### 🧹 `nextInt()` seguido de `nextLine()`
+
+Em `OrganizandoEntradaDeDados.java`, depois da leitura da idade:
+
+```java
+int idade = sc.nextInt();
+sc.nextLine();
+```
+
+o segundo comando consome a quebra de linha deixada pelo `nextInt()`.
+
+Sem isso, uma chamada seguinte de:
+
+```java
+sc.nextLine();
+```
+
+poderia capturar apenas o Enter pendente e retornar uma `String` vazia em vez da cidade digitada.
+
+### ✅ Métodos que retornam `boolean`
+
+Em `SeparandoValidacao.java`:
+
+```java
+public static boolean ehPar(int num) {
+    return num % 2 == 0;
+}
+```
+
+a expressão:
+
+```java
+num % 2 == 0
+```
+
+já produz diretamente:
+
+```text
+true  → número par
+false → número ímpar
+```
+
+Em `JogoDeAdivinhacao.java`, a mesma ideia aparece em:
+
+```java
+public static boolean verificarAcerto(int palpite, int numeroSecreto) {
+    return palpite == numeroSecreto;
+}
+```
+
+O método responde apenas uma pergunta lógica: **o palpite é igual ao número secreto?**
+
+### 🎲 Jogo de adivinhação — métodos trabalhando em conjunto
+
+`JogoDeAdivinhacao.java` é um bom exemplo de evolução da modularização.
+
+O programa distribui responsabilidades:
+
+```text
+sortearNumero()     → cria o número secreto
+lerPalpite()        → recebe a tentativa
+verificarAcerto()   → compara os números
+mostrarDica()       → informa maior ou menor
+mostrarVitoria()    → exibe quantidade de tentativas
+main()              → coordena o jogo
+```
+
+O laço:
+
+```java
+while (!acertou)
+```
+
+significa:
+
+> Continue executando enquanto `acertou` for falso.
+
+Quando:
+
+```java
+acertou = true;
+```
+
+o laço termina.
+
+### 🔐 Comparando textos com `.equals()`
+
+Em `SistemaDeLogin.java`, as credenciais são comparadas utilizando:
+
+```java
+usuario.equals("pedroyokada")
+```
+
+e:
+
+```java
+senha.equals("pedro123")
+```
+
+Para comparar o conteúdo de `String` em Java, utiliza-se `.equals()`. O operador `&&` exige que as duas condições sejam verdadeiras:
+
+```text
+usuário correto && senha correta
+             ↓
+        login válido
+```
+
+### ⚠️ Pontos observados na Lista 5
+
+Os arquivos `.java` foram mantidos exatamente como estão no repositório. Durante a documentação, foram identificados alguns pontos para futura revisão:
+
+* **`SistemaDeNotas.java`**: o cálculo atual está escrito como `(n2 + n2 + n3) / 3`. Dessa forma, `n1` não participa da média e `n2` é somado duas vezes. A expressão esperada para três notas seria `(n1 + n2 + n3) / 3`. O arquivo não foi alterado.
+* **`SistemaBancarioSimples.java`**: o método de saque subtrai qualquer valor informado sem verificar saldo suficiente ou valores negativos. Para fins de aprendizagem, a estrutura de métodos funciona, mas essas validações seriam importantes em uma evolução do exercício.
+* **`SistemaDeLogin.java`**: usuário e senha estão escritos diretamente no código. Isso serve para praticar condições e métodos, mas não representa uma forma segura de autenticação para uma aplicação real.
+* **`PedraPapelTesoura.java`**: o arquivo ainda está vazio além da estrutura da classe e do `main`, portanto foi documentado apenas como exercício-base.
+* **`SeparandoCalculo.java`**: o método `Multiplicar()` começa com letra maiúscula. O código funciona, mas a convenção usual do Java utiliza nomes de métodos iniciados com letra minúscula, como `multiplicar()`.
+
+
 ---
 
 # ❌⭕ Projeto — Jogo da Velha
@@ -814,6 +1126,16 @@ Até o momento, as atividades já trabalham:
 * operadores lógicos aplicados à comparação de coordenadas;
 * `for-each`;
 * métodos com parâmetros e retorno;
+* métodos `void` para ações sem retorno;
+* modularização e separação de responsabilidades;
+* encadeamento de resultados entre métodos;
+* escopo de variáveis locais;
+* passagem de `Scanner` como parâmetro;
+* métodos com retorno `boolean`, `String`, `int` e `double`;
+* reutilização de métodos dentro de outros métodos;
+* validação de login com `.equals()` e `&&`;
+* geração de números aleatórios com `Random`;
+* controle de jogos com `while` e estado booleano;
 * organização inicial do código em métodos.
 
 A progressão atual pode ser resumida assim:
@@ -848,6 +1170,12 @@ Rotação e transformação de índices
 Comparação entre posições e detecção de repetidos
         ↓
 Métodos e organização do código
+        ↓
+Parâmetros e valores de retorno
+        ↓
+Modularização e separação de responsabilidades
+        ↓
+Métodos trabalhando em conjunto
         ↓
 Programação Orientada a Objetos
 ```
