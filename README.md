@@ -728,22 +728,25 @@ Os arquivos `.java` foram preservados sem alterações. Durante a documentação
 
 A Lista 5 marca uma nova etapa do repositório: em vez de concentrar toda a lógica dentro do método `main`, os exercícios passam a **separar responsabilidades em métodos menores**. A ideia central é fazer cada método cuidar de uma tarefa específica, receber apenas os dados de que precisa e, quando necessário, devolver um resultado com `return`.
 
-Os três commits mais recentes da lista — **“Inicio da lista 5”**, **“Continuidade da lista 5”** e **“Continuidade da lista 5 17:36”** — adicionaram os exercícios abaixo.
+A documentação abaixo considera a evolução completa da lista até o commit **“finalização lista 5 - funções”**, incluindo exercícios que haviam sido adicionados ao repositório, mas ainda não estavam descritos no README.
 
 | Exercício | Descrição | Conceitos praticados |
 | --- | --- | --- |
-| [`SeparandoImpressao.java`](./Lista5/SeparandoImpressao.java) | Divide a impressão do título e do menu em dois métodos diferentes, chamados pelo `main`. | `void`, chamada de métodos, separação de responsabilidades |
-| [`SeparandoCalculo.java`](./Lista5/SeparandoCalculo.java) | Separa o cálculo de uma multiplicação da exibição do resultado. O método `operacao()` retorna o valor calculado e outro método imprime o resultado. | parâmetros, `return`, tipo `int`, fluxo entre métodos |
-| [`SeparandoValidacao.java`](./Lista5/SeparandoValidacao.java) | Lê um número, verifica se ele é par com um método que retorna `boolean` e envia o resultado para outro método responsável pela mensagem. | `boolean`, `% 2`, parâmetros, retorno, `Scanner` |
-| [`SistemaDeNotas.java`](./Lista5/SistemaDeNotas.java) | Lê três notas por meio de um método, calcula a média, classifica a situação do aluno e exibe o resultado utilizando métodos separados. | `double`, `String`, retorno, média aritmética, condicionais |
-| [`CalculadoraOrganizada.java`](./Lista5/CalculadoraOrganizada.java) | Organiza uma calculadora em métodos específicos para menu, leitura e quatro operações matemáticas, deixando o `main` responsável por coordenar o fluxo. | modularização, parâmetros, retorno `double`, validação de opção, divisão por zero |
-| [`TabuadaModular.java`](./Lista5/TabuadaModular.java) | Lê um número, cria uma linha da tabuada em um método e utiliza outro método com `for` para repetir as multiplicações de 1 a 10. | composição de métodos, `for`, parâmetros, reutilização |
-| [`ContadorInteligente.java`](./Lista5/ContadorInteligente.java) | Separa a exibição dos números de 1 a 100, dos pares e dos ímpares em três métodos diferentes. | métodos `void`, `for`, operador `%`, pares e ímpares |
-| [`OrganizandoEntradaDeDados.java`](./Lista5/OrganizandoEntradaDeDados.java) | Separa a leitura de nome, idade e cidade e depois envia os três dados para um método que monta o resumo final. | `Scanner`, `String`, `int`, retorno, parâmetros, `nextLine()` |
-| [`SistemaBancarioSimples.java`](./Lista5/SistemaBancarioSimples.java) | Simula operações bancárias simples, separando menu, depósito, saque e consulta de saldo em métodos. | estado do saldo, retorno `double`, parâmetros, condicionais, menu |
-| [`SistemaDeLogin.java`](./Lista5/SistemaDeLogin.java) | Separa leitura de usuário, leitura de senha, validação das credenciais e exibição do resultado. | `String`, `.equals()`, operador `&&`, retorno e validação |
-| [`JogoDeAdivinhacao.java`](./Lista5/JogoDeAdivinhacao.java) | Sorteia um número entre 1 e 100 e organiza o jogo em métodos para palpite, verificação de acerto, dica e mensagem de vitória. | `Random`, `while`, `boolean`, contador, métodos com responsabilidades específicas |
-| [`PedraPapelTesoura.java`](./Lista5/PedraPapelTesoura.java) | Arquivo-base criado para um futuro exercício de Pedra, Papel e Tesoura. No estado atual, contém apenas a classe e o método `main` vazio. | estrutura inicial de classe e `main` |
+| [`SeparandoImpressao.java`](./Lista5/SeparandoImpressao.java) | Divide a impressão do título e do menu em métodos diferentes, deixando o `main` responsável apenas por coordenar as chamadas. | `void`, chamada de métodos, separação de responsabilidades |
+| [`SeparandoCalculo.java`](./Lista5/SeparandoCalculo.java) | Separa o cálculo de uma multiplicação da exibição do resultado, usando um método que retorna o valor calculado. | parâmetros, `return`, `int`, fluxo entre métodos |
+| [`SeparandoValidacao.java`](./Lista5/SeparandoValidacao.java) | Lê um número, verifica se ele é par com um método que retorna `boolean` e envia o resultado para outro método de exibição. | `boolean`, `% 2`, parâmetros, retorno, `Scanner` |
+| [`SistemaDeNotas.java`](./Lista5/SistemaDeNotas.java) | Organiza leitura de notas, cálculo de média, classificação e exibição em métodos separados. | `double`, `String`, retorno, média aritmética, condicionais |
+| [`CalculadoraOrganizada.java`](./Lista5/CalculadoraOrganizada.java) | Organiza uma calculadora em métodos para menu, leitura e operações matemáticas, deixando o `main` controlar o fluxo. | modularização, parâmetros, retorno `double`, validação de opção |
+| [`TabuadaModular.java`](./Lista5/TabuadaModular.java) | Lê um número, cria uma linha da tabuada em um método e usa outro método com `for` para repetir as multiplicações de 1 a 10. | composição de métodos, `for`, parâmetros, reutilização |
+| [`ContadorInteligente.java`](./Lista5/ContadorInteligente.java) | Separa a exibição dos números de 1 a 100, dos pares e dos ímpares em métodos específicos. | métodos `void`, `for`, operador `%`, pares e ímpares |
+| [`OrganizandoEntradaDeDados.java`](./Lista5/OrganizandoEntradaDeDados.java) | Separa a leitura de nome, idade e cidade e envia os dados para um método responsável pelo resumo final. | `Scanner`, `String`, `int`, retorno, parâmetros, `nextLine()` |
+| [`SistemaBancarioSimples.java`](./Lista5/SistemaBancarioSimples.java) | Simula depósito, saque e consulta de saldo separando cada responsabilidade em métodos. | estado do saldo, retorno `double`, parâmetros, condicionais |
+| [`SistemaDeLogin.java`](./Lista5/SistemaDeLogin.java) | Separa leitura de usuário e senha, validação das credenciais e exibição do resultado. | `String`, `.equals()`, `&&`, retorno, validação |
+| [`JogoDeAdivinhacao.java`](./Lista5/JogoDeAdivinhacao.java) | Sorteia um número e distribui o jogo em métodos para palpite, verificação de acerto, dica e mensagem de vitória. | `Random`, `while`, `boolean`, contador, modularização |
+| [`PedraPapelTesoura.java`](./Lista5/PedraPapelTesoura.java) | Implementa uma partida de Pedra, Papel e Tesoura contra o computador, separando menu, jogadas, sorteio, decisão do vencedor e exibição do resultado. | `Random`, `Scanner`, métodos, `String`, operadores lógicos, validação |
+| [`CaixaEletronico.java`](./Lista5/CaixaEletronico.java) | Implementa um caixa eletrônico com menu repetitivo, depósito, saque com validação, consulta de saldo e encerramento. | métodos `static`, `do...while`, parâmetros, retorno `double`, validação |
+| [`RPG_Simples.java`](./Lista5/RPG_Simples.java) | Cria um personagem e separa ações de status, ataque, recebimento de dano e cura em métodos menores. | métodos, parâmetros, retorno `int`, estado, limites de vida |
+| [`MiniJogo.java`](./Lista5/MiniJogo.java) | Desenvolve um mini jogo de batalha com jogador e monstro, dano aleatório, cura, status e verificação de vitória ou derrota. | `Random`, `Scanner`, `while`, `boolean`, métodos trabalhando em conjunto |
 
 ### 🧱 O que significa modularizar um programa?
 
@@ -1031,9 +1034,99 @@ Os arquivos `.java` foram mantidos exatamente como estão no repositório. Duran
 * **`SistemaDeNotas.java`**: o cálculo atual está escrito como `(n2 + n2 + n3) / 3`. Dessa forma, `n1` não participa da média e `n2` é somado duas vezes. A expressão esperada para três notas seria `(n1 + n2 + n3) / 3`. O arquivo não foi alterado.
 * **`SistemaBancarioSimples.java`**: o método de saque subtrai qualquer valor informado sem verificar saldo suficiente ou valores negativos. Para fins de aprendizagem, a estrutura de métodos funciona, mas essas validações seriam importantes em uma evolução do exercício.
 * **`SistemaDeLogin.java`**: usuário e senha estão escritos diretamente no código. Isso serve para praticar condições e métodos, mas não representa uma forma segura de autenticação para uma aplicação real.
-* **`PedraPapelTesoura.java`**: o arquivo ainda está vazio além da estrutura da classe e do `main`, portanto foi documentado apenas como exercício-base.
 * **`SeparandoCalculo.java`**: o método `Multiplicar()` começa com letra maiúscula. O código funciona, mas a convenção usual do Java utiliza nomes de métodos iniciados com letra minúscula, como `multiplicar()`.
 
+
+---
+
+## 📓 Lista 6 — Introdução à Programação Orientada a Objetos
+
+A Lista 6 inicia de forma direta o estudo de **Programação Orientada a Objetos (POO)**. Depois de aprender a dividir programas em métodos na Lista 5, os exercícios passam a reunir **dados e comportamentos relacionados dentro de classes e objetos**.
+
+| Exercício | Descrição | Conceitos praticados |
+| --- | --- | --- |
+| [`Contador.java`](./Lista6/Contador.java) | Representa um contador por meio de um atributo interno e fornece métodos para zerar, incrementar e consultar o valor armazenado. | classe, objeto, atributo `private`, encapsulamento, métodos de instância |
+| [`Ponto2D.java`](./Lista6/Ponto2D.java) | Representa um ponto cartesiano com coordenadas X e Y. Implementa diferentes formas de construção, getters/setters, movimentação sobrecarregada, comparação, representação textual, distância entre pontos e clonagem. | construtores, sobrecarga, encapsulamento, `this`, getters/setters, `equals()`, `toString()`, `clone()`, `Math.sqrt()` |
+| [`NumeroComplexo.java`](./Lista6/NumeroComplexo.java) | Representa números complexos com partes real e imaginária e implementa soma, subtração, multiplicação, divisão, comparação, representação no formato `a + bi` e cálculo do módulo. | atributos, construtor, encapsulamento, getters/setters, métodos de instância, `equals()`, `toString()`, `Math.sqrt()` |
+
+### 💡 Conceitos-chave da Lista 6
+
+**Classe** é o molde que define quais dados e comportamentos um tipo de objeto terá. **Objeto** é uma instância criada a partir desse molde.
+
+Em `Ponto2D`, por exemplo:
+
+```java
+Ponto2D ponto = new Ponto2D(3, 4);
+```
+
+`Ponto2D` é a classe, enquanto `ponto` é um objeto que guarda seu próprio estado.
+
+**Atributos** armazenam os dados do objeto. Quando declarados como `private`, ficam protegidos contra acesso direto externo, reforçando o **encapsulamento**.
+
+```java
+private double pontox;
+private double pontoy;
+```
+
+**Getters e setters** controlam a leitura e alteração desses atributos:
+
+```text
+get → consultar um valor
+set → alterar um valor
+```
+
+**Construtor** é executado quando um objeto é criado com `new`. A classe `Ponto2D` possui construtores diferentes, permitindo criar um ponto na origem, informar X e Y ou copiar outro ponto.
+
+**Sobrecarga** ocorre quando métodos ou construtores possuem o mesmo nome, mas recebem parâmetros diferentes. Em `Ponto2D` isso aparece tanto nos construtores quanto em `mover()`.
+
+**`this`** representa o próprio objeto que está executando o método. Assim, `this.pontox` significa “o valor de X deste objeto”.
+
+**Sobrescrita** aparece com `@Override`, quando a classe redefine um comportamento herdado. Os exercícios utilizam esse recurso em métodos como `equals()` e `toString()`.
+
+**`equals()`** permite comparar semanticamente dois objetos. Em vez de verificar apenas se são a mesma referência, a classe pode comparar os valores que representam seu estado.
+
+**`toString()`** define como o objeto será representado em texto. Em `NumeroComplexo`, por exemplo, um objeto pode ser exibido como:
+
+```text
+3.0 + 4.0i
+```
+
+### 🔄 Da Lista 5 para a Lista 6
+
+A evolução entre as duas listas pode ser resumida assim:
+
+```text
+Lista 5 — Métodos e modularização
+        ↓
+Separação de responsabilidades
+        ↓
+Parâmetros e valores de retorno
+        ↓
+Reutilização de código
+        ↓
+Lista 6 — Programação Orientada a Objetos
+        ↓
+Classes e objetos
+        ↓
+Atributos e estado
+        ↓
+Construtores
+        ↓
+Encapsulamento
+        ↓
+Getters e setters
+        ↓
+Sobrecarga e sobrescrita
+```
+
+A Lista 5 prepara o código para ser dividido em responsabilidades menores. A Lista 6 avança essa organização ao colocar **estado e comportamentos relacionados dentro do mesmo objeto**.
+
+### ⚠️ Pontos observados na Lista 6
+
+Os arquivos `.java` foram preservados sem alterações nesta atualização do README.
+
+* **`Contador.java`**: o método `incrementar()` adiciona atualmente **100** ao contador (`numero += 100`). Isso foi documentado conforme o código existente; caso o objetivo do exercício seja incrementar uma unidade por chamada, esse ponto merece revisão futura.
+* **`NumeroComplexo.java`**: o método `dividir()` aplica a fórmula de divisão de números complexos, mas não possui uma validação específica para impedir divisão pelo número complexo `0 + 0i`.
 
 ---
 
@@ -1137,6 +1230,18 @@ Até o momento, as atividades já trabalham:
 * geração de números aleatórios com `Random`;
 * controle de jogos com `while` e estado booleano;
 * organização inicial do código em métodos.
+* classes e objetos;
+* atributos e estado de objetos;
+* construtores;
+* encapsulamento com `private`;
+* getters e setters;
+* uso de `this`;
+* sobrecarga de construtores e métodos;
+* sobrescrita com `@Override`;
+* comparação semântica com `equals()`;
+* representação de objetos com `toString()`;
+* clonagem de objetos;
+* operações matemáticas implementadas como comportamentos de objetos.
 
 A progressão atual pode ser resumida assim:
 
@@ -1178,14 +1283,22 @@ Modularização e separação de responsabilidades
 Métodos trabalhando em conjunto
         ↓
 Programação Orientada a Objetos
+        ↓
+Classes e objetos
+        ↓
+Atributos e estado
+        ↓
+Construtores
+        ↓
+Encapsulamento
+        ↓
+Getters e setters
+        ↓
+Sobrecarga e sobrescrita
 ```
 
 Conforme o avanço das aulas, os próximos exercícios poderão aprofundar conteúdos como:
 
-* classes e objetos;
-* atributos e métodos;
-* construtores;
-* encapsulamento;
 * herança;
 * polimorfismo;
 * abstração;
