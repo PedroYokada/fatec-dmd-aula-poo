@@ -1041,13 +1041,15 @@ Os arquivos `.java` foram mantidos exatamente como estão no repositório. Duran
 
 ## 📓 Lista 6 — Introdução à Programação Orientada a Objetos
 
-A Lista 6 inicia de forma direta o estudo de **Programação Orientada a Objetos (POO)**. Depois de aprender a dividir programas em métodos na Lista 5, os exercícios passam a reunir **dados e comportamentos relacionados dentro de classes e objetos**.
+A Lista 6 inicia de forma direta o estudo de **Programação Orientada a Objetos (POO)**. Depois de aprender a dividir programas em métodos na Lista 5, os exercícios passam a reunir **dados e comportamentos relacionados dentro de classes e objetos**. Com os exercícios mais recentes, a lista também começa a explorar a **reutilização e colaboração entre objetos**, usando `Ponto2D` como base para representar retas e círculos no plano cartesiano.
 
 | Exercício | Descrição | Conceitos praticados |
 | --- | --- | --- |
 | [`Contador.java`](./Lista6/Contador.java) | Representa um contador por meio de um atributo interno e fornece métodos para zerar, incrementar e consultar o valor armazenado. | classe, objeto, atributo `private`, encapsulamento, métodos de instância |
 | [`Ponto2D.java`](./Lista6/Ponto2D.java) | Representa um ponto cartesiano com coordenadas X e Y. Implementa diferentes formas de construção, getters/setters, movimentação sobrecarregada, comparação, representação textual, distância entre pontos e clonagem. | construtores, sobrecarga, encapsulamento, `this`, getters/setters, `equals()`, `toString()`, `clone()`, `Math.sqrt()` |
 | [`NumeroComplexo.java`](./Lista6/NumeroComplexo.java) | Representa números complexos com partes real e imaginária e implementa soma, subtração, multiplicação, divisão, comparação, representação no formato `a + bi` e cálculo do módulo. | atributos, construtor, encapsulamento, getters/setters, métodos de instância, `equals()`, `toString()`, `Math.sqrt()` |
+| [`Reta.java`](./Lista6/Reta.java) | Representa uma reta no formato `y = ax + b`. Permite criar a reta pelos coeficientes ou por dois pontos, consultar os coeficientes, verificar se um ponto pertence à reta, gerar sua representação textual e calcular a interseção com outra reta. | construtores sobrecarregados, reutilização de `Ponto2D`, getters, `Math.abs()`, `toString()`, interseção entre objetos, `IllegalArgumentException` |
+| [`CirculoPlanoCartesiano.java`](./Lista6/CirculoPlanoCartesiano.java) | Representa um círculo por meio do raio e de um objeto `Ponto2D` usado como centro. Implementa construtores sobrecarregados, alteração do raio, métodos `inflar()` e `desinflar()`, movimentação do centro e cálculo da área. | composição de objetos, `Ponto2D` como atributo, sobrecarga, encapsulamento, reutilização de métodos, `Math.PI` |
 
 ### 💡 Conceitos-chave da Lista 6
 
@@ -1091,6 +1093,24 @@ set → alterar um valor
 3.0 + 4.0i
 ```
 
+**Objetos também podem ser atributos de outras classes.** Em `CirculoPlanoCartesiano`, o centro do círculo não é armazenado com dois novos `double`; ele reutiliza a classe `Ponto2D`:
+
+```java
+private Ponto2D centro;
+```
+
+Isso permite reaproveitar comportamentos já existentes, como `mover()`. A mesma ideia aparece em `Reta`, que recebe objetos `Ponto2D` para calcular seus coeficientes e pode retornar um novo `Ponto2D` como ponto de interseção.
+
+**Classes podem colaborar entre si.** Na Lista 6, `Ponto2D` deixa de ser apenas um exercício isolado e passa a servir de apoio para outras classes geométricas:
+
+```text
+Ponto2D
+├── usado por Reta
+└── usado por CirculoPlanoCartesiano
+```
+
+Essa reutilização mostra uma das principais vantagens da orientação a objetos: construir novas soluções combinando classes já implementadas.
+
 ### 🔄 Da Lista 5 para a Lista 6
 
 A evolução entre as duas listas pode ser resumida assim:
@@ -1117,6 +1137,10 @@ Encapsulamento
 Getters e setters
         ↓
 Sobrecarga e sobrescrita
+        ↓
+Objetos colaborando entre si
+        ↓
+Reutilização de Ponto2D em Reta e Círculo
 ```
 
 A Lista 5 prepara o código para ser dividido em responsabilidades menores. A Lista 6 avança essa organização ao colocar **estado e comportamentos relacionados dentro do mesmo objeto**.
@@ -1127,6 +1151,8 @@ Os arquivos `.java` foram preservados sem alterações nesta atualização do RE
 
 * **`Contador.java`**: o método `incrementar()` adiciona atualmente **100** ao contador (`numero += 100`). Isso foi documentado conforme o código existente; caso o objetivo do exercício seja incrementar uma unidade por chamada, esse ponto merece revisão futura.
 * **`NumeroComplexo.java`**: o método `dividir()` aplica a fórmula de divisão de números complexos, mas não possui uma validação específica para impedir divisão pelo número complexo `0 + 0i`.
+* **`Reta.java`**: a representação adotada é `y = ax + b`; por isso, o construtor com dois pontos rejeita retas verticais, que não podem ser representadas nesse formato com um coeficiente angular finito.
+* **`CirculoPlanoCartesiano.java`**: o centro é armazenado como um objeto `Ponto2D` e os métodos `mover()` reutilizam diretamente os comportamentos já implementados nessa classe.
 
 ---
 
@@ -1242,6 +1268,16 @@ Até o momento, as atividades já trabalham:
 * representação de objetos com `toString()`;
 * clonagem de objetos;
 * operações matemáticas implementadas como comportamentos de objetos.
+* reutilização de objetos como atributos de outras classes;
+* colaboração entre classes por meio de `Ponto2D`;
+* construtores que recebem outros objetos como parâmetros;
+* representação de retas no formato `y = ax + b`;
+* verificação de pertencimento de pontos a retas;
+* cálculo de interseção entre retas;
+* representação de círculos por raio e centro;
+* sobrecarga de métodos para movimentação e alteração do raio;
+* cálculo de área com `Math.PI`;
+* validação com `IllegalArgumentException`.
 
 A progressão atual pode ser resumida assim:
 
