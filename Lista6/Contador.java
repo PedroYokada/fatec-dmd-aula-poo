@@ -9,7 +9,7 @@ public class Contador {
 	}
 
 	public void incrementar() {
-		numero += 100;
+		numero += 1;
 	}
 
 	public int mostrar() {
