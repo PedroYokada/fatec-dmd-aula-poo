@@ -1039,120 +1039,96 @@ Os arquivos `.java` foram mantidos exatamente como estão no repositório. Duran
 
 ---
 
-## 📓 Lista 6 — Introdução à Programação Orientada a Objetos
+## 📓 Lista 6 — Programação Orientada a Objetos
 
-A Lista 6 inicia de forma direta o estudo de **Programação Orientada a Objetos (POO)**. Depois de aprender a dividir programas em métodos na Lista 5, os exercícios passam a reunir **dados e comportamentos relacionados dentro de classes e objetos**. Com os exercícios mais recentes, a lista também começa a explorar a **reutilização e colaboração entre objetos**, usando `Ponto2D` como base para representar retas e círculos no plano cartesiano.
+A Lista 6 consolida a transição da programação estruturada para **Programação Orientada a Objetos (POO)**. Os exercícios começam com classes simples e avançam para **composição entre objetos, comparação semântica, estruturas dinâmicas, recursividade e operações entre objetos mais complexos**.
 
 | Exercício | Descrição | Conceitos praticados |
 | --- | --- | --- |
 | [`Contador.java`](./Lista6/Contador.java) | Representa um contador por meio de um atributo interno e fornece métodos para zerar, incrementar e consultar o valor armazenado. | classe, objeto, atributo `private`, encapsulamento, métodos de instância |
-| [`Ponto2D.java`](./Lista6/Ponto2D.java) | Representa um ponto cartesiano com coordenadas X e Y. Implementa diferentes formas de construção, getters/setters, movimentação sobrecarregada, comparação, representação textual, distância entre pontos e clonagem. | construtores, sobrecarga, encapsulamento, `this`, getters/setters, `equals()`, `toString()`, `clone()`, `Math.sqrt()` |
-| [`NumeroComplexo.java`](./Lista6/NumeroComplexo.java) | Representa números complexos com partes real e imaginária e implementa soma, subtração, multiplicação, divisão, comparação, representação no formato `a + bi` e cálculo do módulo. | atributos, construtor, encapsulamento, getters/setters, métodos de instância, `equals()`, `toString()`, `Math.sqrt()` |
-| [`Reta.java`](./Lista6/Reta.java) | Representa uma reta no formato `y = ax + b`. Permite criar a reta pelos coeficientes ou por dois pontos, consultar os coeficientes, verificar se um ponto pertence à reta, gerar sua representação textual e calcular a interseção com outra reta. | construtores sobrecarregados, reutilização de `Ponto2D`, getters, `Math.abs()`, `toString()`, interseção entre objetos, `IllegalArgumentException` |
-| [`CirculoPlanoCartesiano.java`](./Lista6/CirculoPlanoCartesiano.java) | Representa um círculo por meio do raio e de um objeto `Ponto2D` usado como centro. Implementa construtores sobrecarregados, alteração do raio, métodos `inflar()` e `desinflar()`, movimentação do centro e cálculo da área. | composição de objetos, `Ponto2D` como atributo, sobrecarga, encapsulamento, reutilização de métodos, `Math.PI` |
+| [`Ponto2D.java`](./Lista6/Ponto2D.java) | Representa um ponto cartesiano com coordenadas X e Y, incluindo diferentes construtores, movimentação, comparação, distância e clonagem. | construtores, sobrecarga, encapsulamento, `this`, getters/setters, `equals()`, `toString()`, `clone()` |
+| [`NumeroComplexo.java`](./Lista6/NumeroComplexo.java) | Representa números complexos e implementa operações de soma, subtração, multiplicação, divisão, comparação, representação textual e módulo. | objetos, métodos de instância, operações matemáticas, `equals()`, `toString()`, `Math.sqrt()` |
+| [`Reta.java`](./Lista6/Reta.java) | Representa uma reta no formato `y = ax + b`, permitindo construção por coeficientes ou por dois pontos, teste de pertencimento e cálculo de interseção. | composição, construtores sobrecarregados, reutilização de `Ponto2D`, exceções |
+| [`CirculoPlanoCartesiano.java`](./Lista6/CirculoPlanoCartesiano.java) | Representa um círculo por raio e centro, reutilizando `Ponto2D` para movimentação e posição. | composição de objetos, sobrecarga, encapsulamento, `Math.PI` |
+| [`Pais.java`](./Lista6/Pais.java) | Representa países com código ISO, nome, população, dimensão territorial e até 40 fronteiras. Verifica igualdade semântica, países limítrofes, densidade populacional e vizinhos em comum. | arrays de objetos, composição, comparação semântica, busca, encapsulamento |
+| [`PaisCorrigido.java`](./Lista6/PaisCorrigido.java) | Versão auxiliar utilizada durante a evolução do exercício de países, mantendo a mesma proposta de fronteiras e comparação por código ISO. | revisão de código, arrays de objetos, encapsulamento |
+| [`Continente.java`](./Lista6/Continente.java) | Agrupa países e calcula dimensão total, população total, densidade, países com maior/menor população e território e razão territorial. | arrays de objetos, agregação, percursos, comparação entre objetos |
+| [`Pessoa.java`](./Lista6/Pessoa.java) | Representa uma árvore familiar usando referências para pai e mãe, permitindo verificar igualdade, irmãos e antecessores. | autorreferência, composição, recursividade, comparação semântica |
+| [`Conjunto.java`](./Lista6/Conjunto.java) | Implementa um conjunto de `String` usando array com crescimento dinâmico, evitando duplicados e oferecendo união, interseção e diferença. | encapsulamento, array dinâmico manual, busca, união, interseção, diferença |
+| [`Matriz.java`](./Lista6/Matriz.java) | Representa uma matriz como objeto e reúne operações de acesso, comparação, transposição, matriz oposta, identidade, diagonal, simetria, soma, subtração, multiplicação e cópia. | matriz como objeto, encapsulamento, composição de comportamentos, validação, `IllegalArgumentException` |
 
 ### 💡 Conceitos-chave da Lista 6
 
-**Classe** é o molde que define quais dados e comportamentos um tipo de objeto terá. **Objeto** é uma instância criada a partir desse molde.
-
-Em `Ponto2D`, por exemplo:
+**Classe** é o molde que define dados e comportamentos. **Objeto** é uma instância desse molde.
 
 ```java
 Ponto2D ponto = new Ponto2D(3, 4);
 ```
 
-`Ponto2D` é a classe, enquanto `ponto` é um objeto que guarda seu próprio estado.
+**Encapsulamento** protege o estado interno dos objetos com atributos `private` e métodos de acesso.
 
-**Atributos** armazenam os dados do objeto. Quando declarados como `private`, ficam protegidos contra acesso direto externo, reforçando o **encapsulamento**.
-
-```java
-private double pontox;
-private double pontoy;
-```
-
-**Getters e setters** controlam a leitura e alteração desses atributos:
-
-```text
-get → consultar um valor
-set → alterar um valor
-```
-
-**Construtor** é executado quando um objeto é criado com `new`. A classe `Ponto2D` possui construtores diferentes, permitindo criar um ponto na origem, informar X e Y ou copiar outro ponto.
-
-**Sobrecarga** ocorre quando métodos ou construtores possuem o mesmo nome, mas recebem parâmetros diferentes. Em `Ponto2D` isso aparece tanto nos construtores quanto em `mover()`.
-
-**`this`** representa o próprio objeto que está executando o método. Assim, `this.pontox` significa “o valor de X deste objeto”.
-
-**Sobrescrita** aparece com `@Override`, quando a classe redefine um comportamento herdado. Os exercícios utilizam esse recurso em métodos como `equals()` e `toString()`.
-
-**`equals()`** permite comparar semanticamente dois objetos. Em vez de verificar apenas se são a mesma referência, a classe pode comparar os valores que representam seu estado.
-
-**`toString()`** define como o objeto será representado em texto. Em `NumeroComplexo`, por exemplo, um objeto pode ser exibido como:
-
-```text
-3.0 + 4.0i
-```
-
-**Objetos também podem ser atributos de outras classes.** Em `CirculoPlanoCartesiano`, o centro do círculo não é armazenado com dois novos `double`; ele reutiliza a classe `Ponto2D`:
-
-```java
-private Ponto2D centro;
-```
-
-Isso permite reaproveitar comportamentos já existentes, como `mover()`. A mesma ideia aparece em `Reta`, que recebe objetos `Ponto2D` para calcular seus coeficientes e pode retornar um novo `Ponto2D` como ponto de interseção.
-
-**Classes podem colaborar entre si.** Na Lista 6, `Ponto2D` deixa de ser apenas um exercício isolado e passa a servir de apoio para outras classes geométricas:
+**Composição e agregação** aparecem quando um objeto utiliza outros objetos. Um círculo possui um `Ponto2D` como centro, um continente mantém vários objetos `Pais` e uma `Pessoa` pode apontar para outras pessoas como pai e mãe.
 
 ```text
 Ponto2D
 ├── usado por Reta
 └── usado por CirculoPlanoCartesiano
+
+Pais
+└── agrupado por Continente
+
+Pessoa
+├── pai  → Pessoa
+└── mãe  → Pessoa
 ```
 
-Essa reutilização mostra uma das principais vantagens da orientação a objetos: construir novas soluções combinando classes já implementadas.
+**Recursividade** aparece em `Pessoa.java`, quando a busca por um antecessor continua pela árvore familiar através dos objetos pai e mãe.
 
-### 🔄 Da Lista 5 para a Lista 6
-
-A evolução entre as duas listas pode ser resumida assim:
+**Estruturas dinâmicas manuais** aparecem em `Conjunto.java`. Quando o array fica cheio, um novo array maior é criado e os elementos são copiados para ele.
 
 ```text
-Lista 5 — Métodos e modularização
-        ↓
-Separação de responsabilidades
-        ↓
-Parâmetros e valores de retorno
-        ↓
-Reutilização de código
-        ↓
-Lista 6 — Programação Orientada a Objetos
-        ↓
+[Java][Python]
+       ↓ array cheio
+[Java][Python][   ][   ]
+```
+
+**Objetos podem representar estruturas matemáticas completas.** Em `Matriz.java`, a matriz deixa de ser apenas um `double[][]` solto dentro do `main` e passa a possuir estado e comportamentos próprios.
+
+### 🔄 Evolução da Lista 6
+
+```text
 Classes e objetos
-        ↓
-Atributos e estado
-        ↓
-Construtores
         ↓
 Encapsulamento
         ↓
-Getters e setters
+Construtores, getters e setters
         ↓
 Sobrecarga e sobrescrita
         ↓
-Objetos colaborando entre si
+Composição entre objetos
         ↓
-Reutilização de Ponto2D em Reta e Círculo
+Arrays de objetos
+        ↓
+Comparação semântica
+        ↓
+Recursividade
+        ↓
+Estruturas dinâmicas manuais
+        ↓
+Objetos mais complexos: conjuntos e matrizes
 ```
-
-A Lista 5 prepara o código para ser dividido em responsabilidades menores. A Lista 6 avança essa organização ao colocar **estado e comportamentos relacionados dentro do mesmo objeto**.
 
 ### ⚠️ Pontos observados na Lista 6
 
-Os arquivos `.java` foram preservados sem alterações nesta atualização do README.
+Os arquivos foram documentados conforme o estado atual do repositório.
 
-* **`Contador.java`**: o método `incrementar()` adiciona atualmente **100** ao contador (`numero += 100`). Isso foi documentado conforme o código existente; caso o objetivo do exercício seja incrementar uma unidade por chamada, esse ponto merece revisão futura.
-* **`NumeroComplexo.java`**: o método `dividir()` aplica a fórmula de divisão de números complexos, mas não possui uma validação específica para impedir divisão pelo número complexo `0 + 0i`.
-* **`Reta.java`**: a representação adotada é `y = ax + b`; por isso, o construtor com dois pontos rejeita retas verticais, que não podem ser representadas nesse formato com um coeficiente angular finito.
-* **`CirculoPlanoCartesiano.java`**: o centro é armazenado como um objeto `Ponto2D` e os métodos `mover()` reutilizam diretamente os comportamentos já implementados nessa classe.
+* **`Contador.java`**: o método `incrementar()` adiciona atualmente 100 ao contador.
+* **`NumeroComplexo.java`**: a divisão não possui validação específica para o número complexo `0 + 0i`.
+* **`Reta.java`**: a representação `y = ax + b` não representa retas verticais com coeficiente angular finito.
+* **`Pais.java`**: as fronteiras são armazenadas em um array com capacidade máxima de 40 posições.
+* **`Pessoa.java`**: a busca por antecessores utiliza chamadas recursivas em pai e mãe.
+* **`Conjunto.java`**: o crescimento da estrutura é feito manualmente criando um novo array com o dobro da capacidade.
+* **`Matriz.java`**: concentra várias operações matriciais dentro da própria classe, reforçando a ideia de reunir estado e comportamento no mesmo objeto.
 
 ---
 
@@ -1197,6 +1173,75 @@ Nesta versão, o programa foi reorganizado para tornar o código mais modular, l
 * separação das funcionalidades em métodos específicos.
 
 A atividade representa uma evolução da primeira versão do jogo, reduzindo a concentração de toda a lógica no método `main` e demonstrando como a divisão de responsabilidades facilita a manutenção e a compreensão do programa.
+
+---
+
+# ♟️ Projeto — Xadrez em Java com POO
+
+### [`xadrez/`](./xadrez)
+
+Projeto iniciado para aplicar conceitos de **Programação Orientada a Objetos** na construção da estrutura de um jogo de xadrez em Java.
+
+A implementação atual separa as responsabilidades em diferentes classes e utiliza uma interface comum para representar as peças.
+
+| Arquivo | Responsabilidade |
+| --- | --- |
+| [`Cor.java`](./xadrez/Cor.java) | Define as cores `BRANCO` e `PRETO` por meio de `enum`. |
+| [`Posicao.java`](./xadrez/Posicao.java) | Armazena linha e coluna de uma posição do tabuleiro. |
+| [`Peca.java`](./xadrez/Peca.java) | Interface que define o contrato comum das peças: cor, símbolo e validação de movimento. |
+| [`PecaBase.java`](./xadrez/PecaBase.java) | Classe abstrata que implementa a parte comum das peças e armazena sua cor. |
+| [`Torre.java`](./xadrez/Torre.java) | Implementa a movimentação horizontal e vertical. |
+| [`Bispo.java`](./xadrez/Bispo.java) | Implementa a movimentação diagonal. |
+| [`Cavalo.java`](./xadrez/Cavalo.java) | Implementa o movimento em L. |
+| [`Rainha.java`](./xadrez/Rainha.java) | Combina movimentação reta e diagonal. |
+| [`Rei.java`](./xadrez/Rei.java) | Implementa o deslocamento básico de uma casa. |
+| [`Peao.java`](./xadrez/Peao.java) | Implementa o movimento básico de uma casa para frente de acordo com a cor. |
+| [`Tabuleiro.java`](./xadrez/Tabuleiro.java) | Mantém uma matriz `Peca[8][8]`, posiciona as 32 peças e exibe o tabuleiro no console. |
+| [`Main.java`](./xadrez/Main.java) | Cria o tabuleiro, monta as peças e apresenta o estado inicial no console. |
+| [`Partida.java`](./xadrez/Partida.java) | Arquivo criado como base para a futura lógica de controle da partida. |
+
+### 🧠 Conceitos de POO aplicados
+
+O projeto utiliza conceitos que passam a aparecer de forma mais explícita no repositório:
+
+* **interface** com `Peca`;
+* **classe abstrata** com `PecaBase`;
+* **herança** com classes como `Torre extends PecaBase`;
+* **polimorfismo** ao armazenar diferentes tipos de peças em `Peca[][]`;
+* **sobrescrita** com `@Override`;
+* **encapsulamento** de cor e posição;
+* **enum** para representar as cores;
+* **matriz de objetos** para representar as 64 casas;
+* **separação de responsabilidades** entre peças, posição e tabuleiro.
+
+A estrutura principal pode ser visualizada assim:
+
+```text
+Peca <<interface>>
+        ↓
+PecaBase <<abstract>>
+        ↓
+Torre / Bispo / Cavalo / Rainha / Rei / Peao
+        ↓
+Tabuleiro → Peca[8][8]
+        ↓
+Main
+```
+
+### 🚧 Estado atual do projeto
+
+No commit **“Projeto de xadrez em java, utilizando POO”**, o projeto já consegue:
+
+* criar todas as peças;
+* representar as cores;
+* definir regras básicas de movimentação em cada classe;
+* montar as 32 peças nas posições iniciais;
+* armazenar as peças em uma matriz `8x8`;
+* exibir o tabuleiro no console.
+
+A partida **ainda não é interativa**. O `Main` atual monta e mostra o tabuleiro, enquanto `Partida.java` ainda está como estrutura inicial. Ainda faltam etapas como entrada de jogadas, movimentação efetiva, alternância de turnos, captura, bloqueio de caminho, xeque, xeque-mate, roque, promoção e *en passant*.
+
+> **Ponto para revisão:** no estado atual do commit, `Rainha.getSimbolo()` retorna `C/c`, o mesmo símbolo utilizado pelo Cavalo. Esse detalhe pode ser ajustado em uma próxima evolução do projeto.
 
 ---
 
@@ -1278,6 +1323,19 @@ Até o momento, as atividades já trabalham:
 * sobrecarga de métodos para movimentação e alteração do raio;
 * cálculo de área com `Math.PI`;
 * validação com `IllegalArgumentException`.
+* arrays de objetos;
+* agregação de objetos em `Continente`;
+* autorreferência e recursividade em `Pessoa`;
+* implementação manual de conjunto com crescimento dinâmico;
+* união, interseção e diferença entre conjuntos;
+* matriz encapsulada como objeto;
+* interfaces com `Peca`;
+* classes abstratas com `PecaBase`;
+* herança com `extends`;
+* polimorfismo por meio de referências do tipo `Peca`;
+* `enum` para estados fixos;
+* matrizes de objetos com `Peca[][]`;
+* modelagem inicial de um tabuleiro de xadrez orientado a objetos.
 
 A progressão atual pode ser resumida assim:
 
@@ -1331,14 +1389,24 @@ Encapsulamento
 Getters e setters
         ↓
 Sobrecarga e sobrescrita
+        ↓
+Composição e arrays de objetos
+        ↓
+Recursividade e estruturas dinâmicas
+        ↓
+Interfaces e classes abstratas
+        ↓
+Herança e polimorfismo
+        ↓
+Projeto de Xadrez em Java
 ```
 
 Conforme o avanço das aulas, os próximos exercícios poderão aprofundar conteúdos como:
 
-* herança;
-* polimorfismo;
-* abstração;
+* aplicação de herança e polimorfismo em projetos maiores;
+* abstração e interfaces em arquiteturas mais completas;
 * tratamento de exceções;
+* coleções da API Java;
 * Banco de Dados;
 * JDBC;
 * arquitetura cliente-servidor;
