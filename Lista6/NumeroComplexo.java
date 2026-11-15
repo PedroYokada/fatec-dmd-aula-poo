@@ -63,6 +63,11 @@ public class NumeroComplexo {
 
 		double denominador = (c * c) + (d * d);
 
+        // Evita divisão por 0 + 0i.
+        if (c == 0 && d == 0) {
+            throw new ArithmeticException("Não é possível dividir por zero.");
+        }
+
 		this.real = ((a * c) + (b * d)) / denominador;
 		this.imaginaria = ((b * c) - (a * d)) / denominador;
 	}
@@ -81,6 +86,12 @@ public class NumeroComplexo {
 
 		return false;
 	}
+
+    // Mantém o contrato de hashCode com equals.
+    @Override
+    public int hashCode() {
+        return java.util.Objects.hash(real, imaginaria);
+    }
 
 	// H) Representação: a + bi
 	@Override

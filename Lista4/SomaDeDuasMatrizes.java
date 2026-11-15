@@ -65,6 +65,6 @@ public class SomaDeDuasMatrizes {
 			System.out.println();
 		}
 
-	}
-
+        sc.close();
+    }
 }

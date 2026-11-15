@@ -24,7 +24,7 @@ public class Pessoa {
 			return false;
 		}
 
-		if (nome.equals(pessoa.nome) && mae == pessoa.mae) {
+		if (nome.equals(pessoa.nome) && pai == pessoa.pai && mae == pessoa.mae) {
 			return true;
 		} else {
 			return false;
@@ -33,7 +33,7 @@ public class Pessoa {
 
 	public boolean irmaos(Pessoa pessoa) {
 
-		if (pessoa == null) {
+		if (pessoa == null || this == pessoa) {
 			return false;
 		}
 

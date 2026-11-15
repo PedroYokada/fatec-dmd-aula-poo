@@ -40,6 +40,6 @@ public class MultiplicacaoPorEscalar {
 			System.out.println();
 		}
 
-	}
-
+        sc.close();
+    }
 }

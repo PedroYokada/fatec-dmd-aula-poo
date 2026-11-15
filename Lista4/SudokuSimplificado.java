@@ -15,6 +15,10 @@ public class SudokuSimplificado {
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 3; j++) {
 				matriz[i][j] = sc.nextInt();
+                // Neste desafio 3x3, cada valor deve estar entre 1 e 9.
+                if (matriz[i][j] < 1 || matriz[i][j] > 9) {
+                    condicao = false;
+                }
 			}
 		}
 
@@ -30,7 +34,8 @@ public class SudokuSimplificado {
 			}
 		}
 		
-		System.out.println(condicao);
+		System.out.println(condicao ? "Matriz válida: números de 1 a 9 sem repetição." : "Matriz inválida: valores repetidos ou fora de 1 a 9.");
+        sc.close();
 
 	}
 }

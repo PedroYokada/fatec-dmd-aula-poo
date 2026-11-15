@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class SistemaBancarioSimples {
 
     public static void mostrarMenu() {
-
         System.out.println();
         System.out.println("+------------------------------+");
         System.out.println("|       SISTEMA BANCÁRIO       |");
@@ -19,62 +18,76 @@ public class SistemaBancarioSimples {
     }
 
     public static double depositar(double saldo, double valor) {
-
+        if (!Double.isFinite(valor) || valor <= 0) {
+            throw new IllegalArgumentException("O depósito deve ser maior que zero.");
+        }
         return saldo + valor;
     }
 
     public static double sacar(double saldo, double valor) {
-
+        if (!Double.isFinite(valor) || valor <= 0) {
+            throw new IllegalArgumentException("O saque deve ser maior que zero.");
+        }
+        if (valor > saldo) {
+            throw new IllegalArgumentException("Saldo insuficiente.");
+        }
         return saldo - valor;
     }
 
     public static void consultarSaldo(double saldo) {
-
-        System.out.println("Saldo atual: R$ " + saldo);
+        System.out.printf("Saldo atual: R$ %.2f%n", saldo);
     }
 
     public static void main(String[] args) {
-
         Scanner sc = new Scanner(System.in);
-
         double saldo = 10000;
+        int opcao = 0;
 
-        mostrarMenu();
+        // Mantém o menu disponível até que o usuário escolha sair.
+        do {
+            mostrarMenu();
 
-        int opcao = sc.nextInt();
+            if (!sc.hasNextInt()) {
+                System.out.println("Opção inválida!");
+                sc.nextLine();
+                continue;
+            }
 
-        if (opcao == 1) {
+            opcao = sc.nextInt();
 
-            System.out.print("Digite o valor para depósito: ");
-            double valor = sc.nextDouble();
+            if (opcao == 1 || opcao == 2) {
+                System.out.print(opcao == 1 ? "Digite o valor para depósito: " : "Digite o valor para saque: ");
 
-            saldo = depositar(saldo, valor);
+                if (!sc.hasNextDouble()) {
+                    System.out.println("Valor inválido!");
+                    sc.nextLine();
+                    continue;
+                }
 
-            System.out.println("Depósito realizado.");
-            consultarSaldo(saldo);
+                double valor = sc.nextDouble();
 
-        } else if (opcao == 2) {
+                try {
+                    if (opcao == 1) {
+                        saldo = depositar(saldo, valor);
+                        System.out.println("Depósito realizado.");
+                    } else {
+                        saldo = sacar(saldo, valor);
+                        System.out.println("Saque realizado.");
+                    }
+                    consultarSaldo(saldo);
+                } catch (IllegalArgumentException e) {
+                    System.out.println("Erro: " + e.getMessage());
+                }
 
-            System.out.print("Digite o valor para saque: ");
-            double valor = sc.nextDouble();
+            } else if (opcao == 3) {
+                consultarSaldo(saldo);
+            } else if (opcao == 4) {
+                System.out.println("Programa encerrado...");
+            } else {
+                System.out.println("Opção inválida.");
+            }
 
-            saldo = sacar(saldo, valor);
-
-            System.out.println("Saque realizado.");
-            consultarSaldo(saldo);
-
-        } else if (opcao == 3) {
-
-            consultarSaldo(saldo);
-
-        } else if (opcao == 4) {
-
-            System.out.println("Programa encerrado...");
-
-        } else {
-
-            System.out.println("Valor inválido");
-        }
+        } while (opcao != 4);
 
         sc.close();
     }

@@ -8,14 +8,16 @@ public class CirculoPlanoCartesiano {
 
 	// A) Construtor com raio e centro
 	public CirculoPlanoCartesiano(double raio, Ponto2D centro) {
-		this.raio = raio;
-		this.centro = centro;
+		setRaio(raio);
+        if (centro == null) {
+            throw new IllegalArgumentException("Centro não pode ser nulo.");
+        }
+        this.centro = new Ponto2D(centro);
 	}
 
 	// B) Construtor com raio e centro na origem
 	public CirculoPlanoCartesiano(double raio) {
-		this.raio = raio;
-		this.centro = new Ponto2D();
+		this(raio, new Ponto2D());
 	}
 
 	// C) Getter do raio
@@ -25,27 +27,36 @@ public class CirculoPlanoCartesiano {
 
 	// C) Setter do raio
 	public void setRaio(double raio) {
-		this.raio = raio;
-	}
+        if (!Double.isFinite(raio) || raio < 0) {
+            throw new IllegalArgumentException("O raio deve ser finito e não negativo.");
+        }
+        this.raio = raio;
+    }
 
 	// D) Inflar por um valor
 	public void inflar(double valor) {
-		this.raio = this.raio + valor;
+		if (!Double.isFinite(valor) || valor < 0) {
+            throw new IllegalArgumentException("Valor para inflar inválido.");
+        }
+        setRaio(this.raio + valor);
 	}
 
 	// D) Desinflar por um valor
 	public void desinflar(double valor) {
-		this.raio = this.raio - valor;
+		if (!Double.isFinite(valor) || valor < 0 || valor > this.raio) {
+            throw new IllegalArgumentException("Valor para desinflar inválido.");
+        }
+        setRaio(this.raio - valor);
 	}
 
 	// E) Inflar em 1 unidade
 	public void inflar() {
-		this.raio = this.raio + 1;
+		inflar(1);
 	}
 
 	// E) Desinflar em 1 unidade
 	public void desinflar() {
-		this.raio = this.raio - 1;
+		desinflar(1);
 	}
 
 	// Move o círculo para a origem
@@ -60,7 +71,10 @@ public class CirculoPlanoCartesiano {
 
 	// Move o círculo para a posição de outro ponto
 	public void mover(Ponto2D outroPonto) {
-		this.centro.mover(outroPonto);
+		if (outroPonto == null) {
+            throw new IllegalArgumentException("Ponto não pode ser nulo.");
+        }
+        this.centro.mover(outroPonto);
 	}
 
 	// F) Calcula a área do círculo

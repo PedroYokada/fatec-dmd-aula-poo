@@ -42,7 +42,7 @@ public class SomaPorLinhaeColuna {
 		System.out.println("\n--- Somas das colunas ---");
 
 		for (int j = 0; j < colunas.length; j++) {
-			System.out.println("Soma da linha " + (j + 1) + " = " + colunas[j]);
+			System.out.println("Soma da coluna " + (j + 1) + " = " + colunas[j]);
 		}
 
 		sc.close();

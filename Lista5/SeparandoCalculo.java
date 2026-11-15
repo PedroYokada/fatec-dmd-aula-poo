@@ -6,7 +6,7 @@ public class SeparandoCalculo {
 		return n1 * n2;
 	}
 
-	public static void Multiplicar(int resultado) {
+	public static void multiplicar(int resultado) {
 
 		System.out.println("RESULTADO = " + resultado);
 
@@ -15,7 +15,7 @@ public class SeparandoCalculo {
 	public static void main(String[] args) {
 
 		int resultado = operacao(40, 100);
-		Multiplicar(resultado);
+		multiplicar(resultado);
 	}
 
 }

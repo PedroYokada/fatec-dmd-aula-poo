@@ -15,7 +15,7 @@ public class MaiorValorDaMatriz {
 			for (int j = 0; j < mat[i].length; j++) {
 				System.out.print("Insira o elemento [" + (i + 1) + "," + (j + 1) + "] da matriz: ");
 				mat[i][j] = sc.nextInt();
-				if (i == 0) {
+				if (i == 0 && j == 0) {
 					maior = mat[i][j];
 				} else if (mat[i][j] > maior) {
 					maior = mat[i][j];

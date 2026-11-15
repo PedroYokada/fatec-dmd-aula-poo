@@ -11,7 +11,7 @@ public class SistemaDeNotas {
 	}
 
 	public static double calcularMedia(double n1, double n2, double n3) {
-		double media = (n2 + n2 + n3) / 3;
+		double media = (n1 + n2 + n3) / 3;
 		return media;
 	}
 

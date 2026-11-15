@@ -1031,10 +1031,10 @@ usuário correto && senha correta
 
 Os arquivos `.java` foram mantidos exatamente como estão no repositório. Durante a documentação, foram identificados alguns pontos para futura revisão:
 
-* **`SistemaDeNotas.java`**: o cálculo atual está escrito como `(n2 + n2 + n3) / 3`. Dessa forma, `n1` não participa da média e `n2` é somado duas vezes. A expressão esperada para três notas seria `(n1 + n2 + n3) / 3`. O arquivo não foi alterado.
-* **`SistemaBancarioSimples.java`**: o método de saque subtrai qualquer valor informado sem verificar saldo suficiente ou valores negativos. Para fins de aprendizagem, a estrutura de métodos funciona, mas essas validações seriam importantes em uma evolução do exercício.
+* **`SistemaDeNotas.java`**: a média foi corrigida para `(n1 + n2 + n3) / 3`.
+* **`SistemaBancarioSimples.java`**: os métodos de depósito e saque validam os valores informados e o saldo disponível.
 * **`SistemaDeLogin.java`**: usuário e senha estão escritos diretamente no código. Isso serve para praticar condições e métodos, mas não representa uma forma segura de autenticação para uma aplicação real.
-* **`SeparandoCalculo.java`**: o método `Multiplicar()` começa com letra maiúscula. O código funciona, mas a convenção usual do Java utiliza nomes de métodos iniciados com letra minúscula, como `multiplicar()`.
+* **`SeparandoCalculo.java`**: o método foi padronizado para `multiplicar()`, conforme a convenção Java.
 
 
 ---
@@ -1122,8 +1122,8 @@ Objetos mais complexos: conjuntos e matrizes
 
 Os arquivos foram documentados conforme o estado atual do repositório.
 
-* **`Contador.java`**: o método `incrementar()` adiciona atualmente 100 ao contador.
-* **`NumeroComplexo.java`**: a divisão não possui validação específica para o número complexo `0 + 0i`.
+* **`Contador.java`**: o método `incrementar()` adiciona 1 ao contador, conforme esperado.
+* **`NumeroComplexo.java`**: a divisão agora rejeita o número complexo `0 + 0i`.
 * **`Reta.java`**: a representação `y = ax + b` não representa retas verticais com coeficiente angular finito.
 * **`Pais.java`**: as fronteiras são armazenadas em um array com capacidade máxima de 40 posições.
 * **`Pessoa.java`**: a busca por antecessores utiliza chamadas recursivas em pai e mãe.
@@ -1132,9 +1132,9 @@ Os arquivos foram documentados conforme o estado atual do repositório.
 
 ---
 
-# ❌⭕ Projeto — Jogo da Velha
+# ❌⭕ DesafioExtra1 — Jogo da Velha
 
-### [`JogoDaVelha.java`](./JogoDaVelha/JogoDaVelha.java)
+### [`JogoDaVelha.java`](./DesafioExtra1/JogoDaVelha.java)
 
 Implementação de um **Jogo da Velha para dois jogadores** utilizando Java.
 
@@ -1153,9 +1153,9 @@ O tabuleiro é representado através de uma matriz `3x3`, permitindo que os joga
 
 ---
 
-# ❌⭕ Projeto — Jogo da Velha 2
+# ❌⭕ DesafioExtra1 — Jogo da Velha 2
 
-### [`JogoDaVelha2.java`](./JogoDaVelha/JogoDaVelha2.java)
+### [`JogoDaVelha2.java`](./DesafioExtra1/JogoDaVelha2.java)
 
 Segunda versão do **Jogo da Velha para dois jogadores**, desenvolvida para aprimorar a organização do código em Java e aplicar conceitos iniciais de **Programação Orientada a Objetos**, estruturando as funcionalidades dentro de uma classe e separando as principais responsabilidades em métodos.
 
@@ -1176,9 +1176,9 @@ A atividade representa uma evolução da primeira versão do jogo, reduzindo a c
 
 ---
 
-# ♟️ Projeto — Xadrez em Java com POO
+# ♟️ DesafioExtra2 — Xadrez em Java com POO
 
-### [`xadrez/`](./xadrez)
+### [`DesafioExtra2/`](./xadrez)
 
 Projeto iniciado para aplicar conceitos de **Programação Orientada a Objetos** na construção da estrutura de um jogo de xadrez em Java.
 
@@ -1186,19 +1186,19 @@ A implementação atual separa as responsabilidades em diferentes classes e util
 
 | Arquivo | Responsabilidade |
 | --- | --- |
-| [`Cor.java`](./xadrez/Cor.java) | Define as cores `BRANCO` e `PRETO` por meio de `enum`. |
-| [`Posicao.java`](./xadrez/Posicao.java) | Armazena linha e coluna de uma posição do tabuleiro. |
-| [`Peca.java`](./xadrez/Peca.java) | Interface que define o contrato comum das peças: cor, símbolo e validação de movimento. |
-| [`PecaBase.java`](./xadrez/PecaBase.java) | Classe abstrata que implementa a parte comum das peças e armazena sua cor. |
-| [`Torre.java`](./xadrez/Torre.java) | Implementa a movimentação horizontal e vertical. |
-| [`Bispo.java`](./xadrez/Bispo.java) | Implementa a movimentação diagonal. |
-| [`Cavalo.java`](./xadrez/Cavalo.java) | Implementa o movimento em L. |
-| [`Rainha.java`](./xadrez/Rainha.java) | Combina movimentação reta e diagonal. |
-| [`Rei.java`](./xadrez/Rei.java) | Implementa o deslocamento básico de uma casa. |
-| [`Peao.java`](./xadrez/Peao.java) | Implementa o movimento básico de uma casa para frente de acordo com a cor. |
-| [`Tabuleiro.java`](./xadrez/Tabuleiro.java) | Mantém uma matriz `Peca[8][8]`, posiciona as 32 peças e exibe o tabuleiro no console. |
-| [`Main.java`](./xadrez/Main.java) | Cria o tabuleiro, monta as peças e apresenta o estado inicial no console. |
-| [`Partida.java`](./xadrez/Partida.java) | Arquivo criado como base para a futura lógica de controle da partida. |
+| [`Cor.java`](./DesafioExtra2/Cor.java) | Define as cores `BRANCO` e `PRETO` por meio de `enum`. |
+| [`Posicao.java`](./DesafioExtra2/Posicao.java) | Armazena linha e coluna de uma posição do tabuleiro. |
+| [`Peca.java`](./DesafioExtra2/Peca.java) | Interface que define o contrato comum das peças: cor, símbolo e validação de movimento. |
+| [`PecaBase.java`](./DesafioExtra2/PecaBase.java) | Classe abstrata que implementa a parte comum das peças e armazena sua cor. |
+| [`Torre.java`](./DesafioExtra2/Torre.java) | Implementa a movimentação horizontal e vertical. |
+| [`Bispo.java`](./DesafioExtra2/Bispo.java) | Implementa a movimentação diagonal. |
+| [`Cavalo.java`](./DesafioExtra2/Cavalo.java) | Implementa o movimento em L. |
+| [`Rainha.java`](./DesafioExtra2/Rainha.java) | Combina movimentação reta e diagonal. |
+| [`Rei.java`](./DesafioExtra2/Rei.java) | Implementa o deslocamento básico de uma casa. |
+| [`Peao.java`](./DesafioExtra2/Peao.java) | Implementa o movimento básico de uma casa para frente de acordo com a cor. |
+| [`Tabuleiro.java`](./DesafioExtra2/Tabuleiro.java) | Mantém uma matriz `Peca[8][8]`, posiciona as 32 peças e exibe o tabuleiro no console. |
+| [`Main.java`](./DesafioExtra2/Main.java) | Cria o tabuleiro, monta as peças e apresenta o estado inicial no console. |
+| [`Partida.java`](./DesafioExtra2/Partida.java) | Arquivo criado como base para a futura lógica de controle da partida. |
 
 ### 🧠 Conceitos de POO aplicados
 
@@ -1241,7 +1241,7 @@ No commit **“Projeto de xadrez em java, utilizando POO”**, o projeto já con
 
 A partida **ainda não é interativa**. O `Main` atual monta e mostra o tabuleiro, enquanto `Partida.java` ainda está como estrutura inicial. Ainda faltam etapas como entrada de jogadas, movimentação efetiva, alternância de turnos, captura, bloqueio de caminho, xeque, xeque-mate, roque, promoção e *en passant*.
 
-> **Ponto para revisão:** no estado atual do commit, `Rainha.getSimbolo()` retorna `C/c`, o mesmo símbolo utilizado pelo Cavalo. Esse detalhe pode ser ajustado em uma próxima evolução do projeto.
+> **Ponto para revisão:** no estado atual do commit, `Rainha.getSimbolo()` foi corrigido para `D/d`, distinguindo a dama do cavalo.
 
 ---
 

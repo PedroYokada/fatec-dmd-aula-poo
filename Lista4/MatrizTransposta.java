@@ -10,8 +10,6 @@ public class MatrizTransposta {
 
 		int[][] mat = new int[3][3];
 
-		int[] pares = new int[9];
-		int cont = 0;
 
 		for (int i = 0; i < mat.length; i++) {
 			for (int j = 0; j < mat[i].length; j++) {
@@ -30,7 +28,7 @@ public class MatrizTransposta {
 			System.out.println();
 		}
 
-		System.out.println("\n--- Matriz Tranposta ---");
+		System.out.println("\n--- Matriz Transposta ---");
 		for (int j = 0; j < mat[0].length; j++) {
 			for (int i = 0; i < mat.length; i++) {
 				System.out.print(mat[i][j] + "\t");
@@ -38,6 +36,7 @@ public class MatrizTransposta {
 			System.out.println();
 
 		}
+        sc.close();
 	}
 
 }

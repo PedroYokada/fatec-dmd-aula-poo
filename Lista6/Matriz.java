@@ -143,24 +143,54 @@ public class Matriz {
 		return true;
 	}
 
-	// g) Matriz singular
-	public boolean ehSingular() {
+	// g) Matriz singular: uma matriz quadrada com determinante zero.
+    // Aplica eliminação de Gauss com pivoteamento parcial sem alterar a original.
+    public boolean ehSingular() {
+        if (linhas != colunas) {
+            return false;
+        }
 
-		if (!ehDiagonal()) {
-			return false;
-		}
+        double[][] copia = new double[linhas][colunas];
+        double maiorValor = 0;
 
-		double primeiroElemento = elementos[0][0];
+        for (int i = 0; i < linhas; i++) {
+            for (int j = 0; j < colunas; j++) {
+                copia[i][j] = elementos[i][j];
+                maiorValor = Math.max(maiorValor, Math.abs(copia[i][j]));
+            }
+        }
 
-		for (int i = 1; i < linhas; i++) {
+        // Escala a tolerância para reduzir erros de arredondamento.
+        double tolerancia = 1e-12 * maiorValor;
 
-			if (elementos[i][i] != primeiroElemento) {
-				return false;
-			}
-		}
+        for (int i = 0; i < linhas; i++) {
+            int linhaPivo = i;
 
-		return true;
-	}
+            for (int j = i + 1; j < linhas; j++) {
+                if (Math.abs(copia[j][i]) > Math.abs(copia[linhaPivo][i])) {
+                    linhaPivo = j;
+                }
+            }
+
+            if (Math.abs(copia[linhaPivo][i]) <= tolerancia) {
+                return true;
+            }
+
+            double[] temporaria = copia[i];
+            copia[i] = copia[linhaPivo];
+            copia[linhaPivo] = temporaria;
+
+            for (int j = i + 1; j < linhas; j++) {
+                double fator = copia[j][i] / copia[i][i];
+
+                for (int k = i; k < colunas; k++) {
+                    copia[j][k] -= fator * copia[i][k];
+                }
+            }
+        }
+
+        return false;
+    }
 
 	// h) Matriz simétrica
 	public boolean ehSimetrica() {
