@@ -712,16 +712,18 @@ pode ser lida como:
 
 A primeira parte evita comparar um elemento com ele mesmo. A segunda verifica se os valores são iguais.
 
-### ⚠️ Pontos observados no código atual
+### ✅ Correções aplicadas e limites da Lista 4
 
-Os arquivos `.java` foram preservados sem alterações. Durante a documentação, alguns pontos foram identificados para revisão futura:
+Os exercícios anteriormente revisados foram atualizados no código-fonte:
 
-* **`MaiorValorDaMatriz.java`**: a condição `if (i == 0)` redefine `maior` para **todos os elementos da primeira linha**, e não apenas para o primeiro elemento da matriz. Isso pode fazer um valor maior localizado no início da primeira linha ser perdido. A intenção de inicialização provavelmente seria testar apenas a primeira posição, como `i == 0 && j == 0`. O código não foi alterado nesta atualização.
-* **`MatrizTransposta.java`**: as variáveis `pares` e `cont` foram declaradas, mas não são utilizadas; o texto exibido contém `Tranposta` em vez de `Transposta`; e o `Scanner` não é fechado no final. A lógica de transposição exibida continua funcionando independentemente dessas redundâncias.
-* **`MultiplicacaoPorEscalar.java`** e **`SomaDeDuasMatrizes.java`**: o `Scanner` é criado, mas não é fechado ao final. Isso não muda a proposta dos exercícios, mas é uma melhoria de organização de recursos que pode ser feita posteriormente.
-* **`SomaPorLinhaeColuna.java`**: a seção de saída referente às colunas está correta, mas o texto interno imprime **"Soma da linha"** em vez de **"Soma da coluna"**. O cálculo de `colunas[j]` continua correto; o problema está apenas no rótulo exibido.
-* **`JogoDaVelha.java` da Lista 4**: o arquivo cria um `Scanner`, mas não utiliza entrada do usuário nem fecha o objeto. No estado atual, o exercício apenas inicializa e imprime um tabuleiro vazio; ainda não implementa jogadas.
-* **`SudokuSimplificado.java`**: apesar do nome do arquivo, o código atual não verifica regras completas de Sudoku por linha, coluna ou bloco. Ele verifica se existe **qualquer valor repetido em posições diferentes da matriz inteira**. Além disso, o `Scanner` não é fechado e o resultado final é exibido apenas como `true` ou `false`.
+* **`MaiorValorDaMatriz.java`**: inicializa o maior valor somente na primeira posição (`i == 0 && j == 0`), evitando sobrescrever o máximo ao percorrer a primeira linha.
+* **`MatrizTransposta.java`**: remove declarações não utilizadas, corrige o título “Matriz Transposta” e fecha o `Scanner`; a transposição continua sendo feita pela troca dos índices de leitura.
+* **`MultiplicacaoPorEscalar.java`** e **`SomaDeDuasMatrizes.java`**: fecham o `Scanner` após a leitura.
+* **`SomaPorLinhaeColuna.java`**: apresenta corretamente “Soma da coluna” na saída das somas por coluna.
+* **`SudokuSimplificado.java`**: valida que os nove valores de uma matriz 3×3 estejam entre 1 e 9, sem repetições, e apresenta uma mensagem explicativa. **Não é um validador de Sudoku 9×9 completo.**
+* **`JogoDaVelha.java` da Lista 4**: continua sendo somente um exercício introdutório de matriz de caracteres; a implementação jogável está em [`DesafioExtra1/`](./DesafioExtra1/).
+
+As correções documentadas acima referem-se à Lista 4, sem modificar a proposta didática de cada exercício.
 
 
 ## 📒 Lista 5 — Funções, métodos e modularização
@@ -1027,14 +1029,12 @@ usuário correto && senha correta
         login válido
 ```
 
-### ⚠️ Pontos observados na Lista 5
+### ✅ Correções aplicadas e observações da Lista 5
 
-Os arquivos `.java` foram mantidos exatamente como estão no repositório. Durante a documentação, foram identificados alguns pontos para futura revisão:
-
-* **`SistemaDeNotas.java`**: a média foi corrigida para `(n1 + n2 + n3) / 3`.
-* **`SistemaBancarioSimples.java`**: os métodos de depósito e saque validam os valores informados e o saldo disponível.
-* **`SistemaDeLogin.java`**: usuário e senha estão escritos diretamente no código. Isso serve para praticar condições e métodos, mas não representa uma forma segura de autenticação para uma aplicação real.
-* **`SeparandoCalculo.java`**: o método foi padronizado para `multiplicar()`, conforme a convenção Java.
+* **`SistemaDeNotas.java`**: cálculo da média corrigido para `(n1 + n2 + n3) / 3`.
+* **`SistemaBancarioSimples.java`**: operações de depósito e saque validam valores; o saque também impede a retirada de um valor superior ao saldo, e o menu permanece disponível até a saída.
+* **`SeparandoCalculo.java`**: nome do método padronizado para `multiplicar()`, seguindo a convenção Java.
+* **`SistemaDeLogin.java`**: permanece como exemplo didático, com credenciais definidas no código. Não é um mecanismo de autenticação adequado para produção.
 
 
 ---
@@ -1118,17 +1118,103 @@ Estruturas dinâmicas manuais
 Objetos mais complexos: conjuntos e matrizes
 ```
 
-### ⚠️ Pontos observados na Lista 6
+### ✅ Correções aplicadas e observações da Lista 6
 
-Os arquivos foram documentados conforme o estado atual do repositório.
+* **`Contador.java`**: o método `incrementar()` acrescenta uma unidade, como esperado.
+* **`NumeroComplexo.java`**: a divisão rejeita divisor `0 + 0i`; foram adicionados cuidados de consistência entre `equals()` e `hashCode()`.
+* **`CirculoPlanoCartesiano.java`**: valida raio e operações de aumento/redução, evitando valores negativos inválidos.
+* **`Pessoa.java`**: a comparação de pessoas passou a considerar nome e referências de pai e mãe no critério didático adotado. A busca por antecessores continua recursiva.
+* **`Matriz.java`**: `ehSingular()` agora utiliza eliminação de Gauss com pivoteamento em uma cópia da matriz, em vez de confundir singularidade com uma característica da diagonal.
+* **`Reta.java`**: a representação `y = ax + b` continua sem abranger retas verticais com coeficiente angular finito.
+* **`Pais.java`**: o array de fronteiras possui capacidade fixa de 40 posições.
+* **`Conjunto.java`**: a capacidade cresce manualmente por meio da criação de um novo array.
 
-* **`Contador.java`**: o método `incrementar()` adiciona 1 ao contador, conforme esperado.
-* **`NumeroComplexo.java`**: a divisão agora rejeita o número complexo `0 + 0i`.
-* **`Reta.java`**: a representação `y = ax + b` não representa retas verticais com coeficiente angular finito.
-* **`Pais.java`**: as fronteiras são armazenadas em um array com capacidade máxima de 40 posições.
-* **`Pessoa.java`**: a busca por antecessores utiliza chamadas recursivas em pai e mãe.
-* **`Conjunto.java`**: o crescimento da estrutura é feito manualmente criando um novo array com o dobro da capacidade.
-* **`Matriz.java`**: concentra várias operações matriciais dentro da própria classe, reforçando a ideia de reunir estado e comportamento no mesmo objeto.
+Estas observações descrevem a **Lista 6**, não as versões anteriores dos mesmos temas nas aulas de outubro.
+
+---
+
+## 🐈 Aula 02/10 — Classes, objetos e atributos estáticos
+
+Esta aula utiliza a classe `Gato` para apresentar objetos e mostrar a diferença entre atributos de instância e atributos compartilhados pela classe.
+
+| Arquivo | Explicação |
+| --- | --- |
+| [`Gato.java`](./Aula0210/Gato.java) | Declara nome, raça, quantidade de patas e cor; possui construtor sem parâmetros e construtor com parâmetros, método `miar()`, `toString()` e atributo `static VARIAVEL_GATO`. |
+| [`Main.java`](./Aula0210/Main.java) | Instancia dois gatos, altera nomes, imprime representações dos objetos, chama `miar()` e demonstra que alterar o campo estático por um objeto afeta o valor observado pelo outro. |
+
+**Conceitos:** classes e objetos, estado, construtores, `this`, sobrescrita de `toString()` e membros `static`.
+
+---
+
+## 🔢 Aula 09/10 — Contador, números complexos e pontos 2D
+
+Três exercícios de orientação a objetos que encapsulam valores e operações matemáticas.
+
+| Arquivo | Explicação |
+| --- | --- |
+| [`Contador.java`](./Aula0910/Contador.java) | Mantém uma contagem privada com métodos para incrementar, decrementar, zerar e consultar o valor. O `main` apresenta uma sequência de testes. |
+| [`NumeroComplexo.java`](./Aula0910/NumeroComplexo.java) | Representa parte real e imaginária e introduz construtor, getters, setters, soma, subtração, multiplicação e divisão. |
+| [`Ponto2D.java`](./Aula0910/Ponto2D.java) | Modela coordenadas `x` e `y` com construtor padrão, construtor parametrizado e construtor de cópia. |
+
+**Conceitos:** encapsulamento, métodos de instância, objetos como parâmetros, retorno de novos objetos e construtores sobrecarregados.
+
+**Pontos ainda pendentes nesta aula:** em `NumeroComplexo.java`, a fórmula da divisão precisa de revisão e não há proteção contra divisor zero. Em `Ponto2D.java`, o construtor parametrizado atribui `this.x` duas vezes e deixa `this.y` sem o valor esperado. **Esses são arquivos da Aula0910**, diferentes das versões corrigidas na Lista 6.
+
+---
+
+## 👤 Aula 16/10 — Introdução à classe Pessoa
+
+A pasta [`Aula1610/`](./Aula1610/) contém agora **somente o arquivo `Pessoa.java`**, diretamente na raiz, conforme a organização mais recente do repositório.
+
+| Arquivo | Explicação |
+| --- | --- |
+| [`Pessoa.java`](./Aula1610/Pessoa.java) | Declara atributos privados para nome, sobrenome, CPF e cor de cabelo; utiliza construtor, setter e getters; o `main` instancia uma pessoa, define sua cor de cabelo e imprime os dados disponíveis. |
+
+**Conceitos:** classe, objeto, construtor, atributos privados, encapsulamento, `set` e `get`, uso de `String.split()`.
+
+**Ponto pendente:** o construtor utiliza `n.split(" ")[0]` tanto para o nome quanto para o sobrenome. Para nomes compostos, essa lógica repete a primeira palavra em vez de obter o sobrenome.
+
+---
+
+## 🧵 Aula 23/10 — Strings, StringBuilder e comparação entre objetos
+
+Atividades que exploram construção e formatação de texto, além de uma evolução da classe `Pessoa` com sobrescrita de métodos.
+
+| Arquivo | Explicação |
+| --- | --- |
+| [`Main.java`](./Aula2310/pacote/Main.java) | Cria duas pessoas, compara os objetos com `equals()` e imprime suas representações com `toString()`. |
+| [`Pessoa.java`](./Aula2310/pacote/Pessoa.java) | Acrescenta `equals(Object)`, comparando o CPF, e `toString()`, descrevendo o estado da pessoa. |
+| [`exer1.java`](./Aula2310/pacote/exer1.java) | Demonstra declarações e criação de objetos `String`; é um exemplo inicial ainda sem saída no console. |
+| [`exer2.java`](./Aula2310/pacote/exer2.java) | Usa `StringBuilder.append()` para construir uma frase por etapas. |
+| [`exer3.java`](./Aula2310/pacote/exer3.java) | Compara concatenação de texto com `+` e com o método `concat()`. |
+| [`exer4.java`](./Aula2310/pacote/exer4.java) | Apresenta `String.format()` com formatação numérica e casas decimais. |
+| [`exer5.java`](./Aula2310/pacote/exer5.java) | Utiliza `String.join()` para juntar elementos de um array em uma frase. |
+| [`exer6.java`](./Aula2310/pacote/exer6.java) | Arquivo-base com método `main` vazio, aguardando implementação do exercício. |
+
+**Conceitos:** imutabilidade de `String`, construção de textos, concatenação, formatação, `StringBuilder`, `equals()` e `toString()`.
+
+**Pontos pendentes:** na classe `Pessoa`, o sobrenome ainda é extraído com o mesmo índice do nome; como `equals()` considera o CPF, convém implementar também `hashCode()` para manter o contrato de igualdade em coleções Java. No exemplo de `Main`, as duas pessoas possuem CPF `0`, então a comparação por CPF retorna verdadeiro.
+
+---
+
+## 🦆 Aula 06/11 — Interfaces, classes abstratas e polimorfismo
+
+Exemplo de hierarquia de animais em que características comuns são herdadas de uma classe abstrata, enquanto diferentes ações são definidas por interfaces.
+
+| Arquivo | Explicação |
+| --- | --- |
+| [`Animal.java`](./Aula0611/modelo/Animal.java) | Classe abstrata com nome, idade, construtor, getters e método abstrato `emitirSom()`. |
+| [`Mamifero.java`](./Aula0611/modelo/Mamifero.java) | Classe abstrata que especializa `Animal` para os mamíferos. |
+| [`Ave.java`](./Aula0611/modelo/Ave.java), [`Peixe.java`](./Aula0611/modelo/Peixe.java) e [`Reptil.java`](./Aula0611/modelo/Reptil.java) | Subclasses concretas que fornecem implementações de `emitirSom()`. |
+| [`Cachorro.java`](./Aula0611/modelo/Cachorro.java), [`Gato.java`](./Aula0611/modelo/Gato.java) e [`Ornitorrinco.java`](./Aula0611/modelo/Ornitorrinco.java) | Exemplificam herança e implementação da interface `Caminhante`. |
+| [`Pato.java`](./Aula0611/modelo/Pato.java) | Implementa `Nadador`, `Caminhante` e `Voador`, demonstrando múltiplas capacidades e resolução de métodos `default` com `Interface.super`. |
+| [`Caminhante.java`](./Aula0611/Interface/Caminhante.java), [`Nadador.java`](./Aula0611/Interface/Nadador.java) e [`Voador.java`](./Aula0611/Interface/Voador.java) | Definem contratos de movimentação; `Voador` também demonstra métodos `default` e `static`. |
+| [`Main.java`](./Aula0611/principal/Main.java) | Instancia animais, usa parâmetros do tipo `Animal` e das interfaces, testa `instanceof` e executa andar, nadar, voar, cair e mover. |
+| [`Interface.java`](./Aula0611/modelo/Interface.java) | Arquivo-base de demonstração, com `main` ainda sem lógica implementada. |
+
+**Conceitos:** abstração, herança, interfaces, polimorfismo, `implements`, `extends`, `@Override`, `instanceof` e métodos `default`.
+
+**Observação:** o nome da pasta `Interface` e seu pacote com inicial maiúscula foram mantidos como no exercício original. A aula demonstra tanto a chamada polimórfica de comportamentos quanto a combinação de interfaces em uma classe.
 
 ---
 
@@ -1178,7 +1264,7 @@ A atividade representa uma evolução da primeira versão do jogo, reduzindo a c
 
 # ♟️ DesafioExtra2 — Xadrez em Java com POO
 
-### [`DesafioExtra2/`](./xadrez)
+### [`DesafioExtra2/`](./DesafioExtra2/)
 
 Projeto iniciado para aplicar conceitos de **Programação Orientada a Objetos** na construção da estrutura de um jogo de xadrez em Java.
 
@@ -1239,9 +1325,9 @@ No commit **“Projeto de xadrez em java, utilizando POO”**, o projeto já con
 * armazenar as peças em uma matriz `8x8`;
 * exibir o tabuleiro no console.
 
-A partida **ainda não é interativa**. O `Main` atual monta e mostra o tabuleiro, enquanto `Partida.java` ainda está como estrutura inicial. Ainda faltam etapas como entrada de jogadas, movimentação efetiva, alternância de turnos, captura, bloqueio de caminho, xeque, xeque-mate, roque, promoção e *en passant*.
+A partida **ainda não é interativa**. O `Main` atual monta e mostra o tabuleiro, enquanto `Partida.java` ainda está como estrutura inicial. Ainda faltam etapas como entrada de jogadas, movimentação efetiva, alternância de turnos, captura, validação completa de movimentos para todas as peças, xeque, xeque-mate, roque, promoção e *en passant*.
 
-> **Ponto para revisão:** no estado atual do commit, `Rainha.getSimbolo()` foi corrigido para `D/d`, distinguindo a dama do cavalo.
+> **Correção aplicada:** `Rainha.getSimbolo()` utiliza `D/d`, distinguindo a dama do cavalo. O método também verifica as casas intermediárias do movimento; as demais regras de uma partida completa ainda dependem da implementação de `Partida.java`.
 
 ---
 
@@ -1337,6 +1423,8 @@ Até o momento, as atividades já trabalham:
 * matrizes de objetos com `Peca[][]`;
 * modelagem inicial de um tabuleiro de xadrez orientado a objetos.
 
+As aulas de 02/10, 09/10, 16/10, 23/10 e 06/11 também apresentam atributos estáticos, objetos matemáticos, manipulação de `String` e `StringBuilder`, sobrescrita de `equals()`/`toString()`, classes abstratas, interfaces e polimorfismo.
+
 A progressão atual pode ser resumida assim:
 
 ```text
@@ -1399,6 +1487,8 @@ Interfaces e classes abstratas
 Herança e polimorfismo
         ↓
 Projeto de Xadrez em Java
+        ↓
+Interfaces e polimorfismo com animais
 ```
 
 Conforme o avanço das aulas, os próximos exercícios poderão aprofundar conteúdos como:
